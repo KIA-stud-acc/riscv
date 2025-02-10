@@ -1,0 +1,565 @@
+# //  ModelSim SE-64 10.6d Feb 24 2018
+# //
+# //  Copyright 1991-2018 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  ModelSim SE-64 and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading project testTB
+# reading C:/modeltech64_10.6d/win64/../modelsim.ini
+# Loading project riscv
+# Compile of ALU.sv failed with 1 errors.
+# Compile of controller.sv failed with 2 errors.
+# Compile of dataMem.sv was successful.
+# Compile of datapath.sv failed with 9 errors.
+# Compile of immExt.sv failed with 4 errors.
+# Compile of instrMem.sv was successful.
+# Compile of regFile.sv was successful.
+# Compile of riscv_ps.sv was successful.
+# Compile of testbench.sv was successful.
+# Compile of top.sv was successful.
+# 10 compiles, 4 failed with 16 errors.
+# Compile of ALU.sv failed with 1 errors.
+# Compile of controller.sv failed with 2 errors.
+# Compile of dataMem.sv was successful.
+# Compile of datapath.sv failed with 9 errors.
+# Compile of immExt.sv failed with 4 errors.
+# Compile of instrMem.sv was successful.
+# Compile of regFile.sv was successful.
+# Compile of riscv_ps.sv was successful.
+# Compile of testbench.sv was successful.
+# Compile of top.sv was successful.
+# 10 compiles, 4 failed with 16 errors.
+vlog -sv ALU.sv
+# Model Technology ModelSim SE-64 vlog 10.6d Compiler 2018.02 Feb 24 2018
+# Start time: 16:13:07 on Feb 10,2025
+# vlog -reportprogress 300 -sv ALU.sv 
+# ** Error: (vlog-7) Failed to open design unit file "ALU.sv" in read mode.
+# No such file or directory. (errno = ENOENT)
+# End time: 16:13:07 on Feb 10,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# C:/modeltech64_10.6d/win64/vlog failed.
+vlog -sv controller.sv
+# Model Technology ModelSim SE-64 vlog 10.6d Compiler 2018.02 Feb 24 2018
+# Start time: 16:14:12 on Feb 10,2025
+# vlog -reportprogress 300 -sv controller.sv 
+# ** Error: (vlog-7) Failed to open design unit file "controller.sv" in read mode.
+# No such file or directory. (errno = ENOENT)
+# End time: 16:14:12 on Feb 10,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# C:/modeltech64_10.6d/win64/vlog failed.
+vlog -sv riscv_ps.sv
+# Model Technology ModelSim SE-64 vlog 10.6d Compiler 2018.02 Feb 24 2018
+# Start time: 16:14:31 on Feb 10,2025
+# vlog -reportprogress 300 -sv riscv_ps.sv 
+# ** Error: (vlog-7) Failed to open design unit file "riscv_ps.sv" in read mode.
+# No such file or directory. (errno = ENOENT)
+# End time: 16:14:31 on Feb 10,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# C:/modeltech64_10.6d/win64/vlog failed.
+# Compile of dataMem.sv was successful.
+# Compile of ALU.sv failed with 1 errors.
+# Compile of controller.sv failed with 2 errors.
+# Compile of dataMem.sv was successful.
+# Compile of datapath.sv failed with 9 errors.
+# Compile of immExt.sv failed with 4 errors.
+# Compile of instrMem.sv was successful.
+# Compile of regFile.sv was successful.
+# Compile of riscv_ps.sv was successful.
+# Compile of testbench.sv was successful.
+# Compile of top.sv was successful.
+# 10 compiles, 4 failed with 16 errors.
+vlog -sv controller.sv
+# Model Technology ModelSim SE-64 vlog 10.6d Compiler 2018.02 Feb 24 2018
+# Start time: 16:15:45 on Feb 10,2025
+# vlog -reportprogress 300 -sv controller.sv 
+# ** Error: (vlog-7) Failed to open design unit file "controller.sv" in read mode.
+# No such file or directory. (errno = ENOENT)
+# End time: 16:15:45 on Feb 10,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# C:/modeltech64_10.6d/win64/vlog failed.
+vlog -sv datapath.sv
+# Model Technology ModelSim SE-64 vlog 10.6d Compiler 2018.02 Feb 24 2018
+# Start time: 16:16:01 on Feb 10,2025
+# vlog -reportprogress 300 -sv datapath.sv 
+# ** Error: (vlog-7) Failed to open design unit file "datapath.sv" in read mode.
+# No such file or directory. (errno = ENOENT)
+# End time: 16:16:01 on Feb 10,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# C:/modeltech64_10.6d/win64/vlog failed.
+# Compile of ALU.sv failed with 1 errors.
+# Compile of controller.sv failed with 2 errors.
+# Compile of dataMem.sv was successful.
+# Compile of datapath.sv failed with 9 errors.
+# Compile of immExt.sv failed with 4 errors.
+# Compile of instrMem.sv was successful.
+# Compile of regFile.sv was successful.
+# Compile of riscv_ps.sv was successful.
+# Compile of testbench.sv was successful.
+# Compile of top.sv was successful.
+# 10 compiles, 4 failed with 16 errors.
+vlog ALU.sv
+# Model Technology ModelSim SE-64 vlog 10.6d Compiler 2018.02 Feb 24 2018
+# Start time: 16:19:55 on Feb 10,2025
+# vlog -reportprogress 300 ALU.sv 
+# -- Compiling module ALU
+# ** Error: (vlog-13069) ALU.sv(16): near "always_comb": syntax error, unexpected "SystemVerilog keyword 'always_comb'", expecting ';' or ','.
+# End time: 16:19:55 on Feb 10,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# C:/modeltech64_10.6d/win64/vlog failed.
+vlog ALU.sv
+# Model Technology ModelSim SE-64 vlog 10.6d Compiler 2018.02 Feb 24 2018
+# Start time: 16:20:35 on Feb 10,2025
+# vlog -reportprogress 300 ALU.sv 
+# -- Compiling module ALU
+# ** Error: (vlog-13069) ALU.sv(16): near "always_comb": syntax error, unexpected "SystemVerilog keyword 'always_comb'", expecting ';' or ','.
+# End time: 16:20:35 on Feb 10,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# C:/modeltech64_10.6d/win64/vlog failed.
+vlog ALU.sv
+# Model Technology ModelSim SE-64 vlog 10.6d Compiler 2018.02 Feb 24 2018
+# Start time: 16:20:53 on Feb 10,2025
+# vlog -reportprogress 300 ALU.sv 
+# -- Compiling module ALU
+# ** Error: (vlog-13069) ALU.sv(41): near "end": syntax error, unexpected end, expecting ';'.
+# ** Error: (vlog-13069) ALU.sv(47): near "end": syntax error, unexpected end, expecting ';'.
+# End time: 16:20:53 on Feb 10,2025, Elapsed time: 0:00:00
+# Errors: 2, Warnings: 0
+# C:/modeltech64_10.6d/win64/vlog failed.
+vlog ALU.sv
+# Model Technology ModelSim SE-64 vlog 10.6d Compiler 2018.02 Feb 24 2018
+# Start time: 16:21:18 on Feb 10,2025
+# vlog -reportprogress 300 ALU.sv 
+# -- Compiling module ALU
+# 
+# Top level modules:
+# 	ALU
+# End time: 16:21:18 on Feb 10,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Compile of ALU.sv was successful.
+# Compile of controller.sv failed with 2 errors.
+# Compile of dataMem.sv was successful.
+# Compile of datapath.sv failed with 9 errors.
+# Compile of immExt.sv failed with 4 errors.
+# Compile of instrMem.sv was successful.
+# Compile of regFile.sv was successful.
+# Compile of riscv_ps.sv was successful.
+# Compile of testbench.sv was successful.
+# Compile of top.sv was successful.
+# 10 compiles, 3 failed with 15 errors.
+vlog controller.sv
+# Model Technology ModelSim SE-64 vlog 10.6d Compiler 2018.02 Feb 24 2018
+# Start time: 16:21:42 on Feb 10,2025
+# vlog -reportprogress 300 controller.sv 
+# -- Compiling module controller
+# ** Warning: controller.sv(18): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+# ** Warning: controller.sv(19): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+# ** Warning: controller.sv(20): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+# ** Warning: controller.sv(21): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+# ** Warning: controller.sv(22): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+# ** Warning: controller.sv(23): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+# ** Warning: controller.sv(24): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+# ** Warning: controller.sv(25): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+# ** Warning: controller.sv(26): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+# ** Error: (vlog-13051) controller.sv(42): Illegal digit for specified base in numeric constant.
+# ** Error: (vlog-13051) controller.sv(56): Illegal digit for specified base in numeric constant.
+# End time: 16:21:42 on Feb 10,2025, Elapsed time: 0:00:00
+# Errors: 2, Warnings: 9
+# C:/modeltech64_10.6d/win64/vlog failed.
+vlog controller.sv
+# Model Technology ModelSim SE-64 vlog 10.6d Compiler 2018.02 Feb 24 2018
+# Start time: 16:22:37 on Feb 10,2025
+# vlog -reportprogress 300 controller.sv 
+# -- Compiling module controller
+# ** Warning: controller.sv(18): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+# ** Warning: controller.sv(19): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+# ** Warning: controller.sv(20): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+# ** Warning: controller.sv(21): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+# ** Warning: controller.sv(22): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+# ** Warning: controller.sv(23): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+# ** Warning: controller.sv(24): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+# ** Warning: controller.sv(25): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+# ** Warning: controller.sv(26): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+# 
+# Top level modules:
+# 	controller
+# End time: 16:22:37 on Feb 10,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 9
+vlog datapath.sv
+# Model Technology ModelSim SE-64 vlog 10.6d Compiler 2018.02 Feb 24 2018
+# Start time: 16:24:03 on Feb 10,2025
+# vlog -reportprogress 300 datapath.sv 
+# -- Compiling module datapath
+# ** Error: datapath.sv(16): (vlog-2730) Undefined variable: 'PCtarget'.
+# ** Error: datapath.sv(16): (vlog-2730) Undefined variable: 'PCplus4'.
+# ** Error: datapath.sv(24): (vlog-2730) Undefined variable: 'rd'.
+# ** Error: datapath.sv(24): (vlog-2730) Undefined variable: 'immExt'.
+# ** Error (suppressible): datapath.sv(26): (vlog-2388) 'immExt' already declared in this scope (datapath).
+# ** Error: datapath.sv(32): (vlog-2730) Undefined variable: 'ALUresult'.
+# ** Error (suppressible): datapath.sv(34): (vlog-2388) 'ALUresult' already declared in this scope (datapath).
+# ** Error (suppressible): datapath.sv(34): (vlog-2388) 'result' already declared in this scope (datapath).
+# ** Error (suppressible): datapath.sv(34): (vlog-2388) 'rd' already declared in this scope (datapath).
+# End time: 16:24:03 on Feb 10,2025, Elapsed time: 0:00:00
+# Errors: 9, Warnings: 0
+# C:/modeltech64_10.6d/win64/vlog failed.
+vlog datapath.sv
+# Model Technology ModelSim SE-64 vlog 10.6d Compiler 2018.02 Feb 24 2018
+# Start time: 16:25:34 on Feb 10,2025
+# vlog -reportprogress 300 datapath.sv 
+# -- Compiling module datapath
+# ** Error: datapath.sv(16): (vlog-2730) Undefined variable: 'immExt'.
+# ** Error (suppressible): datapath.sv(29): (vlog-2388) 'immExt' already declared in this scope (datapath).
+# End time: 16:25:34 on Feb 10,2025, Elapsed time: 0:00:00
+# Errors: 2, Warnings: 0
+# C:/modeltech64_10.6d/win64/vlog failed.
+vlog datapath.sv
+# Model Technology ModelSim SE-64 vlog 10.6d Compiler 2018.02 Feb 24 2018
+# Start time: 16:26:05 on Feb 10,2025
+# vlog -reportprogress 300 datapath.sv 
+# -- Compiling module datapath
+# 
+# Top level modules:
+# 	datapath
+# End time: 16:26:05 on Feb 10,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog immExt.sv
+# Model Technology ModelSim SE-64 vlog 10.6d Compiler 2018.02 Feb 24 2018
+# Start time: 16:26:40 on Feb 10,2025
+# vlog -reportprogress 300 immExt.sv 
+# -- Compiling module immExt
+# ** Error: (vlog-13069) immExt.sv(8): near ",": syntax error, unexpected ',', expecting '}'.
+# ** Error: (vlog-13069) immExt.sv(9): near ",": syntax error, unexpected ',', expecting '}'.
+# ** Error: (vlog-13069) immExt.sv(10): near ",": syntax error, unexpected ',', expecting '}'.
+# ** Error: (vlog-13069) immExt.sv(12): near ",": syntax error, unexpected ',', expecting '}'.
+# End time: 16:26:40 on Feb 10,2025, Elapsed time: 0:00:00
+# Errors: 4, Warnings: 0
+# C:/modeltech64_10.6d/win64/vlog failed.
+vlog immExt.sv
+# Model Technology ModelSim SE-64 vlog 10.6d Compiler 2018.02 Feb 24 2018
+# Start time: 16:27:57 on Feb 10,2025
+# vlog -reportprogress 300 immExt.sv 
+# -- Compiling module immExt
+# 
+# Top level modules:
+# 	immExt
+# End time: 16:27:57 on Feb 10,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Compile of ALU.sv was successful.
+# Compile of controller.sv was successful with warnings.
+# Compile of dataMem.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of immExt.sv was successful.
+# Compile of instrMem.sv was successful.
+# Compile of regFile.sv was successful.
+# Compile of riscv_ps.sv was successful.
+# Compile of testbench.sv was successful.
+# Compile of top.sv was successful.
+# 10 compiles, 0 failed with no errors.
+# Load canceled
+vsim work.testbench
+# vsim work.testbench 
+# Start time: 16:29:41 on Feb 10,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: C:\modeltech64_10.6d\win64\Projects\testTB\datapath.sv(28): (vopt-2241) Connection width does not match width of port 'immSrc'. The port definition is at: C:\modeltech64_10.6d\win64\Projects\testTB\immExt.sv(1).
+# ** Warning: C:\modeltech64_10.6d\win64\Projects\testTB\datapath.sv(30): (vopt-2241) Connection width does not match width of port 'adrr1'. The port definition is at: C:/modeltech64_10.6d/win64/Projects/testTB/regFile.sv(1).
+# ** Warning: C:\modeltech64_10.6d\win64\Projects\testTB\datapath.sv(30): (vopt-2241) Connection width does not match width of port 'adrr2'. The port definition is at: C:/modeltech64_10.6d/win64/Projects/testTB/regFile.sv(1).
+# ** Warning: C:\modeltech64_10.6d\win64\Projects\testTB\datapath.sv(30): (vopt-2241) Connection width does not match width of port 'adrw'. The port definition is at: C:/modeltech64_10.6d/win64/Projects/testTB/regFile.sv(1).
+# ** Warning: C:\modeltech64_10.6d\win64\Projects\testTB\datapath.sv(30): (vopt-2241) Connection width does not match width of port 'rd2'. The port definition is at: C:/modeltech64_10.6d/win64/Projects/testTB/regFile.sv(3).
+# ** Warning: C:/modeltech64_10.6d/win64/Projects/testTB/riscv_ps.sv(12): (vopt-2241) Connection width does not match width of port 'writeData'. The port definition is at: C:\modeltech64_10.6d\win64\Projects\testTB\datapath.sv(8).
+# ** Warning: C:/modeltech64_10.6d/win64/Projects/testTB/riscv_ps.sv(12): (vopt-2241) Connection width does not match width of port 'PC'. The port definition is at: C:\modeltech64_10.6d\win64\Projects\testTB\datapath.sv(8).
+# ** Warning: C:/modeltech64_10.6d/win64/Projects/testTB/riscv_ps.sv(13): (vopt-2241) Connection width does not match width of port 'immSrc'. The port definition is at: C:\modeltech64_10.6d\win64\Projects\testTB\controller.sv(8).
+# ** Warning: C:/modeltech64_10.6d/win64/Projects/testTB/top.sv(7): (vopt-2241) Connection width does not match width of port 'adr'. The port definition is at: C:/modeltech64_10.6d/win64/Projects/testTB/instrMem.sv(1).
+# ** Warning: C:/modeltech64_10.6d/win64/Projects/testTB/top.sv(8): (vopt-2241) Connection width does not match width of port 'writeData'. The port definition is at: C:/modeltech64_10.6d/win64/Projects/testTB/dataMem.sv(2).
+# Loading sv_std.std
+# Loading work.testbench(fast)
+vsim work.testbench
+# End time: 16:31:27 on Feb 10,2025, Elapsed time: 0:01:46
+# Errors: 0, Warnings: 10
+# vsim work.testbench 
+# Start time: 16:31:27 on Feb 10,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt1
+# Loading sv_std.std
+# Loading work.testbench(fast)
+add wave -position insertpoint sim:/testbench/*
+# (vish-4014) No objects found matching '/testbench/*'.
+# Compile of testbench.sv was successful.
+vsim work.testbench
+# End time: 16:35:16 on Feb 10,2025, Elapsed time: 0:03:49
+# Errors: 1, Warnings: 0
+# vsim work.testbench 
+# Start time: 16:35:16 on Feb 10,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: C:\modeltech64_10.6d\win64\Projects\testTB\datapath.sv(28): (vopt-2241) Connection width does not match width of port 'immSrc'. The port definition is at: C:\modeltech64_10.6d\win64\Projects\testTB\immExt.sv(1).
+# ** Warning: C:\modeltech64_10.6d\win64\Projects\testTB\datapath.sv(30): (vopt-2241) Connection width does not match width of port 'adrr1'. The port definition is at: C:/modeltech64_10.6d/win64/Projects/testTB/regFile.sv(1).
+# ** Warning: C:\modeltech64_10.6d\win64\Projects\testTB\datapath.sv(30): (vopt-2241) Connection width does not match width of port 'adrr2'. The port definition is at: C:/modeltech64_10.6d/win64/Projects/testTB/regFile.sv(1).
+# ** Warning: C:\modeltech64_10.6d\win64\Projects\testTB\datapath.sv(30): (vopt-2241) Connection width does not match width of port 'adrw'. The port definition is at: C:/modeltech64_10.6d/win64/Projects/testTB/regFile.sv(1).
+# ** Warning: C:\modeltech64_10.6d\win64\Projects\testTB\datapath.sv(30): (vopt-2241) Connection width does not match width of port 'rd2'. The port definition is at: C:/modeltech64_10.6d/win64/Projects/testTB/regFile.sv(3).
+# ** Warning: C:/modeltech64_10.6d/win64/Projects/testTB/riscv_ps.sv(12): (vopt-2241) Connection width does not match width of port 'writeData'. The port definition is at: C:\modeltech64_10.6d\win64\Projects\testTB\datapath.sv(8).
+# ** Warning: C:/modeltech64_10.6d/win64/Projects/testTB/riscv_ps.sv(12): (vopt-2241) Connection width does not match width of port 'PC'. The port definition is at: C:\modeltech64_10.6d\win64\Projects\testTB\datapath.sv(8).
+# ** Warning: C:/modeltech64_10.6d/win64/Projects/testTB/riscv_ps.sv(13): (vopt-2241) Connection width does not match width of port 'immSrc'. The port definition is at: C:\modeltech64_10.6d\win64\Projects\testTB\controller.sv(8).
+# ** Warning: C:/modeltech64_10.6d/win64/Projects/testTB/top.sv(7): (vopt-2241) Connection width does not match width of port 'adr'. The port definition is at: C:/modeltech64_10.6d/win64/Projects/testTB/instrMem.sv(1).
+# ** Warning: C:/modeltech64_10.6d/win64/Projects/testTB/top.sv(8): (vopt-2241) Connection width does not match width of port 'writeData'. The port definition is at: C:/modeltech64_10.6d/win64/Projects/testTB/dataMem.sv(2).
+# Loading sv_std.std
+# Loading work.testbench(fast)
+vsim work.testbench
+# End time: 16:35:52 on Feb 10,2025, Elapsed time: 0:00:36
+# Errors: 0, Warnings: 10
+# vsim work.testbench 
+# Start time: 16:35:52 on Feb 10,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt1
+# Loading sv_std.std
+# Loading work.testbench(fast)
+# Compile of ALU.sv was successful.
+# Compile of controller.sv was successful with warnings.
+# Compile of dataMem.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of immExt.sv was successful.
+# Compile of instrMem.sv was successful.
+# Compile of regFile.sv was successful.
+# Compile of riscv_ps.sv was successful.
+# Compile of testbench.sv was successful.
+# Compile of top.sv was successful.
+# 10 compiles, 0 failed with no errors.
+vsim work.testbench
+# End time: 18:45:45 on Feb 10,2025, Elapsed time: 2:09:53
+# Errors: 0, Warnings: 0
+# vsim work.testbench 
+# Start time: 18:45:45 on Feb 10,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: C:\modeltech64_10.6d\win64\Projects\testTB\datapath.sv(41): (vopt-2241) Connection width does not match width of port 'immSrc'. The port definition is at: C:\modeltech64_10.6d\win64\Projects\testTB\immExt.sv(1).
+# ** Warning: C:\modeltech64_10.6d\win64\Projects\testTB\datapath.sv(43): (vopt-2241) Connection width does not match width of port 'adrr1'. The port definition is at: C:/modeltech64_10.6d/win64/Projects/testTB/regFile.sv(1).
+# ** Warning: C:\modeltech64_10.6d\win64\Projects\testTB\datapath.sv(43): (vopt-2241) Connection width does not match width of port 'adrr2'. The port definition is at: C:/modeltech64_10.6d/win64/Projects/testTB/regFile.sv(1).
+# ** Warning: C:\modeltech64_10.6d\win64\Projects\testTB\datapath.sv(43): (vopt-2241) Connection width does not match width of port 'adrw'. The port definition is at: C:/modeltech64_10.6d/win64/Projects/testTB/regFile.sv(1).
+# ** Warning: C:/modeltech64_10.6d/win64/Projects/testTB/riscv_ps.sv(12): (vopt-2241) Connection width does not match width of port 'writeData'. The port definition is at: C:\modeltech64_10.6d\win64\Projects\testTB\datapath.sv(8).
+# ** Warning: C:/modeltech64_10.6d/win64/Projects/testTB/riscv_ps.sv(13): (vopt-2241) Connection width does not match width of port 'immSrc'. The port definition is at: C:\modeltech64_10.6d\win64\Projects\testTB\controller.sv(8).
+# ** Warning: C:/modeltech64_10.6d/win64/Projects/testTB/top.sv(10): (vopt-2241) Connection width does not match width of port 'writeData'. The port definition is at: C:/modeltech64_10.6d/win64/Projects/testTB/dataMem.sv(2).
+# Loading sv_std.std
+# Loading work.testbench(fast)
+# Loading work.top(fast)
+# Loading work.riscv_ps(fast)
+# Loading work.datapath(fast)
+# Loading work.regFile(fast)
+# ** Warning: (vsim-3015) C:/modeltech64_10.6d/win64/Projects/testTB/riscv_ps.sv(12): [PCDPC] - Port size (32) does not match connection size (1) for port 'writeData'. The port definition is at: C:/modeltech64_10.6d/win64/Projects/testTB/datapath.sv(8).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench/dut/rvps/dp File: C:/modeltech64_10.6d/win64/Projects/testTB/datapath.sv
+# ** Warning: (vsim-3015) C:/modeltech64_10.6d/win64/Projects/testTB/datapath.sv(43): [PCDPC] - Port size (32) does not match connection size (5) for port 'adrr1'. The port definition is at: C:/modeltech64_10.6d/win64/Projects/testTB/regFile.sv(1).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench/dut/rvps/dp/rf File: C:/modeltech64_10.6d/win64/Projects/testTB/regFile.sv
+# ** Warning: (vsim-3015) C:/modeltech64_10.6d/win64/Projects/testTB/datapath.sv(43): [PCDPC] - Port size (32) does not match connection size (5) for port 'adrr2'. The port definition is at: C:/modeltech64_10.6d/win64/Projects/testTB/regFile.sv(1).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench/dut/rvps/dp/rf File: C:/modeltech64_10.6d/win64/Projects/testTB/regFile.sv
+# ** Warning: (vsim-3015) C:/modeltech64_10.6d/win64/Projects/testTB/datapath.sv(43): [PCDPC] - Port size (32) does not match connection size (5) for port 'adrw'. The port definition is at: C:/modeltech64_10.6d/win64/Projects/testTB/regFile.sv(1).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench/dut/rvps/dp/rf File: C:/modeltech64_10.6d/win64/Projects/testTB/regFile.sv
+# Compile of ALU.sv was successful.
+# Compile of controller.sv was successful with warnings.
+# Compile of dataMem.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of immExt.sv was successful.
+# Compile of instrMem.sv was successful.
+# Compile of regFile.sv was successful.
+# Compile of riscv_ps.sv was successful.
+# Compile of testbench.sv was successful.
+# Compile of top.sv was successful.
+# 10 compiles, 0 failed with no errors.
+vsim work.testbench
+# End time: 18:47:56 on Feb 10,2025, Elapsed time: 0:02:11
+# Errors: 0, Warnings: 11
+# vsim work.testbench 
+# Start time: 18:47:56 on Feb 10,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: D:/documents/programming/riscv_ps/datapath.sv(41): (vopt-2241) Connection width does not match width of port 'immSrc'. The port definition is at: D:\documents\programming\riscv_ps\immExt.sv(1).
+# ** Warning: D:/documents/programming/riscv_ps/datapath.sv(43): (vopt-2241) Connection width does not match width of port 'adrr1'. The port definition is at: D:/documents/programming/riscv_ps/regFile.sv(1).
+# ** Warning: D:/documents/programming/riscv_ps/datapath.sv(43): (vopt-2241) Connection width does not match width of port 'adrr2'. The port definition is at: D:/documents/programming/riscv_ps/regFile.sv(1).
+# ** Warning: D:/documents/programming/riscv_ps/datapath.sv(43): (vopt-2241) Connection width does not match width of port 'adrw'. The port definition is at: D:/documents/programming/riscv_ps/regFile.sv(1).
+# ** Warning: D:/documents/programming/riscv_ps/riscv_ps.sv(13): (vopt-2241) Connection width does not match width of port 'immSrc'. The port definition is at: D:\documents\programming\riscv_ps\controller.sv(8).
+# ** Warning: D:/documents/programming/riscv_ps/top.sv(8): (vopt-2241) Connection width does not match width of port 'writeData'. The port definition is at: D:/documents/programming/riscv_ps/riscv_ps.sv(4).
+# ** Warning: D:/documents/programming/riscv_ps/top.sv(10): (vopt-2241) Connection width does not match width of port 'writeData'. The port definition is at: D:/documents/programming/riscv_ps/dataMem.sv(2).
+# Loading sv_std.std
+# Loading work.testbench(fast)
+# Loading work.top(fast)
+# Loading work.riscv_ps(fast)
+# Loading work.datapath(fast)
+# Loading work.regFile(fast)
+# ** Warning: (vsim-3015) D:/documents/programming/riscv_ps/top.sv(8): [PCDPC] - Port size (32) does not match connection size (1) for port 'writeData'. The port definition is at: D:/documents/programming/riscv_ps/riscv_ps.sv(4).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench/dut/rvps File: D:/documents/programming/riscv_ps/riscv_ps.sv
+# ** Warning: (vsim-3015) D:/documents/programming/riscv_ps/datapath.sv(43): [PCDPC] - Port size (32) does not match connection size (5) for port 'adrr1'. The port definition is at: D:/documents/programming/riscv_ps/regFile.sv(1).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench/dut/rvps/dp/rf File: D:/documents/programming/riscv_ps/regFile.sv
+# ** Warning: (vsim-3015) D:/documents/programming/riscv_ps/datapath.sv(43): [PCDPC] - Port size (32) does not match connection size (5) for port 'adrr2'. The port definition is at: D:/documents/programming/riscv_ps/regFile.sv(1).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench/dut/rvps/dp/rf File: D:/documents/programming/riscv_ps/regFile.sv
+# ** Warning: (vsim-3015) D:/documents/programming/riscv_ps/datapath.sv(43): [PCDPC] - Port size (32) does not match connection size (5) for port 'adrw'. The port definition is at: D:/documents/programming/riscv_ps/regFile.sv(1).
+#    Time: 0 ns  Iteration: 0  Instance: /testbench/dut/rvps/dp/rf File: D:/documents/programming/riscv_ps/regFile.sv
+# Compile of ALU.sv was successful.
+# Compile of controller.sv was successful with warnings.
+# Compile of dataMem.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of immExt.sv was successful.
+# Compile of instrMem.sv was successful.
+# Compile of regFile.sv was successful.
+# Compile of riscv_ps.sv was successful.
+# Compile of testbench.sv was successful.
+# Compile of top.sv was successful.
+# 10 compiles, 0 failed with no errors.
+restart -f
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: D:/documents/programming/riscv_ps/datapath.sv(41): (vopt-2241) Connection width does not match width of port 'immSrc'. The port definition is at: D:\documents\programming\riscv_ps\immExt.sv(1).
+# ** Warning: D:/documents/programming/riscv_ps/riscv_ps.sv(13): (vopt-2241) Connection width does not match width of port 'immSrc'. The port definition is at: D:\documents\programming\riscv_ps\controller.sv(8).
+# Loading sv_std.std
+# Loading work.testbench(fast)
+# Loading work.top(fast)
+# Loading work.riscv_ps(fast)
+# Loading work.datapath(fast)
+# Loading work.regFile(fast)
+run
+# REGFILE______
+# x0  - xxxxxxxx
+# x1  - xxxxxxxx
+# x2  - xxxxxxxx
+# x3  - xxxxxxxx
+# x4  - xxxxxxxx
+# DATAPATH______
+# x0  - xxxxxxxx
+# x1  - xxxxxxxx
+# x2  - xxxxxxxx
+# x3  - xxxxxxxx
+# x4  - xxxxxxxx
+# DATAPATH______
+# x0  - xxxxxxxx
+# x1  - xxxxxxxx
+# x2  - xxxxxxxx
+# x3  - xxxxxxxx
+# x4  - xxxxxxxx
+# REGFILE______
+# x0  - xxxxxxxx
+# x1  - xxxxxxxx
+# x2  - xxxxxxxx
+# x3  - xxxxxxxx
+# x4  - xxxxxxxx
+# REGFILE______
+# x0  - xxxxxxxx
+# x1  - xxxxxxxx
+# x2  - xxxxxxxx
+# x3  - xxxxxxxx
+# x4  - xxxxxxxx
+# DATAPATH______
+# x0  - xxxxxxxx
+# x1  - xxxxxxxx
+# x2  - xxxxxxxx
+# x3  - xxxxxxxx
+# x4  - xxxxxxxx
+# 3e800093
+# DATAPATH______
+# x0  - xxxxxxxx
+# x1  - xxxxxxxx
+# x2  - xxxxxxxx
+# x3  - xxxxxxxx
+# x4  - xxxxxxxx
+# REGFILE______
+# x0  - xxxxxxxx
+# x1  - xxxxxxxx
+# x2  - xxxxxxxx
+# x3  - xxxxxxxx
+# x4  - xxxxxxxx
+# 7d008113
+# REGFILE______
+# x0  - xxxxxxxx
+# x1  - xxxxxxxx
+# x2  - xxxxxxxx
+# x3  - xxxxxxxx
+# x4  - xxxxxxxx
+# DATAPATH______
+# x0  - xxxxxxxx
+# x1  - xxxxxxxx
+# x2  - xxxxxxxx
+# x3  - xxxxxxxx
+# x4  - xxxxxxxx
+# c1810193
+# DATAPATH______
+# x0  - xxxxxxxx
+# x1  - xxxxxxxx
+# x2  - xxxxxxxx
+# x3  - xxxxxxxx
+# x4  - xxxxxxxx
+# REGFILE______
+# x0  - xxxxxxxx
+# x1  - xxxxxxxx
+# x2  - xxxxxxxx
+# x3  - xxxxxxxx
+# x4  - xxxxxxxx
+# 83018213
+# REGFILE______
+# x0  - xxxxxxxx
+# x1  - xxxxxxxx
+# x2  - xxxxxxxx
+# x3  - xxxxxxxx
+# x4  - xxxxxxxx
+# DATAPATH______
+# x0  - xxxxxxxx
+# x1  - xxxxxxxx
+# x2  - xxxxxxxx
+# x3  - xxxxxxxx
+# x4  - xxxxxxxx
+# 3e820293
+# DATAPATH______
+# x0  - xxxxxxxx
+# x1  - xxxxxxxx
+# x2  - xxxxxxxx
+# x3  - xxxxxxxx
+# x4  - xxxxxxxx
+# REGFILE______
+# x0  - xxxxxxxx
+# x1  - xxxxxxxx
+# x2  - xxxxxxxx
+# x3  - xxxxxxxx
+# x4  - xxxxxxxx
+# 00400313
+# REGFILE______
+# x0  - xxxxxxxx
+# x1  - xxxxxxxx
+# x2  - xxxxxxxx
+# x3  - xxxxxxxx
+# x4  - xxxxxxxx
+# DATAPATH______
+# x0  - xxxxxxxx
+# x1  - xxxxxxxx
+# x2  - xxxxxxxx
+# x3  - xxxxxxxx
+# x4  - xxxxxxxx
+# x0  - xxxxxxxx
+# x1  - xxxxxxxx
+# x2  - xxxxxxxx
+# x3  - xxxxxxxx
+# x4  - xxxxxxxx
+# x5  - xxxxxxxx
+# x6  - xxxxxxxx
+# x7  - xxxxxxxx
+# x8  - xxxxxxxx
+# x9  - xxxxxxxx
+# x10 - xxxxxxxx
+# x11 - xxxxxxxx
+# x12 - xxxxxxxx
+# x13 - xxxxxxxx
+# x14 - xxxxxxxx
+# x15 - xxxxxxxx
+# x16 - xxxxxxxx
+# x17 - xxxxxxxx
+# x18 - xxxxxxxx
+# x19 - xxxxxxxx
+# x20 - xxxxxxxx
+# x21 - xxxxxxxx
+# x22 - xxxxxxxx
+# x23 - xxxxxxxx
+# x24 - xxxxxxxx
+# x25 - xxxxxxxx
+# x26 - xxxxxxxx
+# x27 - xxxxxxxx
+# x28 - xxxxxxxx
+# x29 - xxxxxxxx
+# x30 - xxxxxxxx
+# x31 - xxxxxxxx
+# ** Note: $finish    : D:/documents/programming/riscv_ps/testbench.sv(39)
+#    Time: 85 ns  Iteration: 2  Instance: /testbench
+# End time: 18:50:51 on Feb 10,2025, Elapsed time: 0:02:55
+# Errors: 0, Warnings: 0

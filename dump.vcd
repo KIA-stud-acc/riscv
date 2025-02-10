@@ -1,0 +1,684 @@
+$date
+	Mon Feb 10 20:30:22 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module testbench $end
+$var wire 1024 ! regs [1023:0] $end
+$var wire 32 " instr [31:0] $end
+$var reg 1 # clk $end
+$var reg 1 $ rst $end
+$scope module dut $end
+$var wire 1 # clk $end
+$var wire 32 % instr1 [31:0] $end
+$var wire 1 $ rst $end
+$var wire 32 & writeData [31:0] $end
+$var wire 1024 ' regs [1023:0] $end
+$var wire 32 ( readData [31:0] $end
+$var wire 1 ) memWrite $end
+$var wire 32 * instr [31:0] $end
+$var wire 32 + dataAdr [31:0] $end
+$var wire 32 , PC [31:0] $end
+$scope module dm $end
+$var wire 1 # clk $end
+$var wire 32 - writeData [31:0] $end
+$var wire 1 ) we $end
+$var wire 1 . instr $end
+$var wire 32 / adr [31:0] $end
+$var reg 32 0 readData [31:0] $end
+$upscope $end
+$scope module im $end
+$var wire 32 1 instr [31:0] $end
+$var wire 32 2 adr [31:0] $end
+$upscope $end
+$scope module rvps $end
+$var wire 1 # clk $end
+$var wire 32 3 instr [31:0] $end
+$var wire 32 4 readData [31:0] $end
+$var wire 1 $ rst $end
+$var wire 1 5 zero $end
+$var wire 32 6 writeData [31:0] $end
+$var wire 2 7 resultSrc [1:0] $end
+$var wire 1024 8 regs [1023:0] $end
+$var wire 1 9 regWrite $end
+$var wire 1 : overflow $end
+$var wire 1 ; negative $end
+$var wire 1 ) memWrite $end
+$var wire 2 < immSrc [1:0] $end
+$var wire 32 = dataAdr [31:0] $end
+$var wire 1 > carry $end
+$var wire 1 ? PCsrc $end
+$var wire 32 @ PC [31:0] $end
+$var wire 1 A Jsrc $end
+$var wire 1 B ALUsrcB $end
+$var wire 2 C ALUsrcA [1:0] $end
+$var wire 4 D ALUcontrol [3:0] $end
+$scope module c $end
+$var wire 1 ? PCsrc $end
+$var wire 3 E funct3 [2:0] $end
+$var wire 1 F funct7 $end
+$var wire 7 G op [6:0] $end
+$var wire 1 5 zero $end
+$var wire 2 H resultSrc [1:0] $end
+$var wire 1 9 regWrite $end
+$var wire 1 : overflow $end
+$var wire 1 ; negative $end
+$var wire 1 ) memWrite $end
+$var wire 1 I jump $end
+$var wire 3 J immSrc [2:0] $end
+$var wire 1 > carry $end
+$var wire 1 K branch $end
+$var wire 1 A Jsrc $end
+$var wire 1 B ALUsrcB $end
+$var wire 2 L ALUsrcA [1:0] $end
+$var wire 2 M ALUop [1:0] $end
+$var reg 4 N ALUcontrol [3:0] $end
+$var reg 1 O condIsTrue $end
+$var reg 15 P controls [14:0] $end
+$upscope $end
+$scope module dp $end
+$var wire 4 Q ALUcontrol [3:0] $end
+$var wire 2 R ALUsrcA [1:0] $end
+$var wire 1 B ALUsrcB $end
+$var wire 1 A Jsrc $end
+$var wire 1 ? PCsrc $end
+$var wire 1 # clk $end
+$var wire 32 S dataAdr [31:0] $end
+$var wire 2 T immSrc [1:0] $end
+$var wire 32 U instr [31:0] $end
+$var wire 32 V readData [31:0] $end
+$var wire 1 9 regWrite $end
+$var wire 2 W resultSrc [1:0] $end
+$var wire 1 $ rst $end
+$var wire 32 X writeData [31:0] $end
+$var wire 1 5 zero $end
+$var wire 32 Y srcB0 [31:0] $end
+$var wire 32 Z srcB [31:0] $end
+$var wire 1024 [ regs [1023:0] $end
+$var wire 32 \ rd [31:0] $end
+$var wire 1 : overflow $end
+$var wire 1 ; negative $end
+$var wire 32 ] immExt [31:0] $end
+$var wire 1 > carry $end
+$var wire 32 ^ PCtarget [31:0] $end
+$var wire 32 _ PCplus4 [31:0] $end
+$var wire 32 ` ALUresult [31:0] $end
+$var reg 32 a PC [31:0] $end
+$var reg 32 b result [31:0] $end
+$var reg 32 c srcA [31:0] $end
+$scope module alu $end
+$var wire 4 d ALUcontrol [3:0] $end
+$var wire 1 : overflow $end
+$var wire 32 e srcA [31:0] $end
+$var wire 32 f srcB [31:0] $end
+$var wire 1 5 zero $end
+$var wire 33 g sum [32:0] $end
+$var wire 1 ; negative $end
+$var wire 1 > carry $end
+$var parameter 32 h ALUcontrolWidth $end
+$var reg 32 i ALUresult [31:0] $end
+$upscope $end
+$scope module ie $end
+$var wire 25 j imm [31:7] $end
+$var wire 3 k immSrc [2:0] $end
+$var reg 32 l immExt [31:0] $end
+$upscope $end
+$scope module rf $end
+$var wire 5 m adrr1 [4:0] $end
+$var wire 5 n adrr2 [4:0] $end
+$var wire 5 o adrw [4:0] $end
+$var wire 1 # clk $end
+$var wire 32 p wd [31:0] $end
+$var wire 1 9 we $end
+$var wire 32 q rd2 [31:0] $end
+$var wire 32 r rd1 [31:0] $end
+$var reg 1024 s regs [1023:0] $end
+$var reg 1024 t rf [1023:0] $end
+$scope begin $ivl_for_loop1 $end
+$var integer 32 u i [31:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope begin $ivl_for_loop0 $end
+$var integer 32 v i [31:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b100 h
+$end
+#0
+$dumpvars
+b0 v
+b100000 u
+bx t
+bx s
+bx r
+bx q
+bx p
+bx o
+bx n
+bx m
+bx l
+b0xx k
+bx j
+bx i
+bx g
+bx f
+bx e
+bx d
+bx c
+bx b
+bx a
+bx `
+bx _
+bx ^
+bx ]
+bx \
+bx [
+bx Z
+bx Y
+bx X
+bx W
+bx V
+bx U
+bx T
+bx S
+bx R
+bx Q
+bx P
+xO
+bx N
+bx M
+bx L
+xK
+bx J
+xI
+bx H
+bx G
+xF
+bx E
+bx D
+bx C
+xB
+xA
+bx @
+x?
+x>
+bx =
+bx <
+x;
+x:
+x9
+bx 8
+bx 7
+bx 6
+x5
+bx 4
+bx 3
+bx 2
+bx 1
+bx 0
+bx /
+x.
+bx -
+bx ,
+bx +
+bx *
+x)
+bx (
+bx '
+bx &
+bx %
+1$
+0#
+bx "
+bx !
+$end
+#5
+0:
+0;
+0O
+b110 b
+0>
+05
+b110 +
+b110 /
+b110 =
+b110 S
+b110 `
+b110 i
+b110 p
+b110 g
+b110 Z
+b110 f
+0?
+b110 ^
+b110 ]
+b110 l
+b0 c
+b0 e
+b0 k
+b0 <
+b0 T
+b0 D
+b0 N
+b0 Q
+b0 d
+0K
+b0 7
+b0 H
+b0 W
+0)
+b0 C
+b0 L
+b0 R
+1B
+19
+b0 J
+b1 M
+0I
+b11000010x P
+b0 \
+b0 r
+b0 &
+b0 -
+b0 6
+b0 X
+b0 Y
+b0 q
+b10011 G
+b0 E
+0F
+b1100000000001010 j
+b0 m
+b110 n
+b1010 o
+b11000000000010100010011 "
+b11000000000010100010011 %
+b11000000000010100010011 *
+b11000000000010100010011 1
+b11000000000010100010011 3
+b11000000000010100010011 U
+b100 _
+b0 ,
+b0 2
+b0 @
+b0 a
+1#
+#10
+0#
+#15
+bx00000000000000000000000000000110xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx !
+bx00000000000000000000000000000110xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx '
+bx00000000000000000000000000000110xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 8
+bx00000000000000000000000000000110xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx [
+bx00000000000000000000000000000110xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx s
+b100000 u
+bx00000000000000000000000000000110xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx t
+1#
+#20
+0#
+#25
+b101 b
+b101 +
+b101 /
+b101 =
+b101 S
+b101 `
+b101 i
+b101 p
+b101 g
+b101 Z
+b101 f
+b101 ]
+b101 l
+b1010000000001011 j
+b101 n
+b1011 o
+bx ^
+b10100000000010110010011 "
+b10100000000010110010011 %
+b10100000000010110010011 *
+b10100000000010110010011 1
+b10100000000010110010011 3
+b10100000000010110010011 U
+b1000 _
+b100 ,
+b100 2
+b100 @
+b100 a
+0$
+1#
+#30
+0#
+#35
+0?
+0O
+0;
+0>
+b10 k
+b10 <
+b10 T
+b10100 ^
+bx b
+1K
+bx 7
+bx H
+bx W
+0B
+09
+b10 J
+b10 M
+0A
+b1 +
+b1 /
+b1 =
+b1 S
+b1 `
+b1 i
+b1 p
+b101 Z
+b101 f
+b1 g
+b110 c
+b110 e
+b1xx000000101000 P
+b1 D
+b1 N
+b1 Q
+b1 d
+b1100 ]
+b1100 l
+b110 \
+b110 r
+b101 &
+b101 -
+b101 6
+b101 X
+b101 Y
+b101 q
+b1100011 G
+b100 E
+b10110101010001100 j
+b1010 m
+b1011 n
+b1100 o
+b101101010100011001100011 "
+b101101010100011001100011 %
+b101101010100011001100011 *
+b101101010100011001100011 1
+b101101010100011001100011 3
+b101101010100011001100011 U
+bx0000000000000000000000000000010100000000000000000000000000000110xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx !
+bx0000000000000000000000000000010100000000000000000000000000000110xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx '
+bx0000000000000000000000000000010100000000000000000000000000000110xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 8
+bx0000000000000000000000000000010100000000000000000000000000000110xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx [
+bx0000000000000000000000000000010100000000000000000000000000000110xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx s
+b100000 u
+b1100 _
+b1000 ,
+b1000 2
+b1000 @
+b1000 a
+bx0000000000000000000000000000010100000000000000000000000000000110xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx t
+1#
+#40
+0#
+#45
+0O
+05
+b1011 +
+b1011 /
+b1011 =
+b1011 S
+b1011 `
+b1011 i
+b1011 p
+b1011 g
+b1011 b
+b0xx k
+bx <
+bx T
+b0 D
+b0 N
+b0 Q
+b0 d
+0K
+b0 7
+b0 H
+b0 W
+19
+bx J
+b1 M
+xA
+b1xxx010x P
+bx ]
+bx l
+b110011 G
+b0 E
+b10110101000001010 j
+b1010 o
+bx ^
+b101101010000010100110011 "
+b101101010000010100110011 %
+b101101010000010100110011 *
+b101101010000010100110011 1
+b101101010000010100110011 3
+b101101010000010100110011 U
+b10000 _
+b1100 ,
+b1100 2
+b1100 @
+b1100 a
+1#
+#50
+0#
+#55
+x:
+x>
+b11000 ^
+b1000 ]
+b1000 l
+1O
+b0 k
+b0 <
+b0 T
+bx D
+bx N
+bx Q
+bx d
+1?
+15
+xK
+b10 7
+b10 H
+b10 W
+bx C
+bx L
+bx R
+xB
+b100 J
+bx M
+1I
+0A
+b0x000 Z
+b0x000 f
+bx100xxx1100xx10 P
+b0 &
+b0 -
+b0 6
+b0 X
+b0 Y
+b0 q
+bx b
+b1101111 G
+b10000000000000000 j
+b0 m
+b1000 n
+b0 o
+b0 +
+b0 /
+b0 =
+b0 S
+b0 `
+b0 i
+b0 p
+b100000000000000001101111 "
+b100000000000000001101111 %
+b100000000000000001101111 *
+b100000000000000001101111 1
+b100000000000000001101111 3
+b100000000000000001101111 U
+bx g
+bx c
+bx e
+bx0000000000000000000000000000010100000000000000000000000000001011xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx !
+bx0000000000000000000000000000010100000000000000000000000000001011xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx '
+bx0000000000000000000000000000010100000000000000000000000000001011xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 8
+bx0000000000000000000000000000010100000000000000000000000000001011xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx [
+bx0000000000000000000000000000010100000000000000000000000000001011xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx s
+b100000 u
+b0 \
+b0 r
+b10100 _
+b10000 ,
+b10000 2
+b10000 @
+b10000 a
+bx0000000000000000000000000000010100000000000000000000000000001011xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx t
+1#
+#60
+0#
+#65
+0:
+0>
+0;
+0O
+b10101 g
+05
+b10101 +
+b10101 /
+b10101 =
+b10101 S
+b10101 `
+b10101 i
+b10101 p
+b10101 b
+b1011 c
+b1011 e
+b0 D
+b0 N
+b0 Q
+b0 d
+0?
+0K
+b0 7
+b0 H
+b0 W
+b0 C
+b0 L
+b0 R
+1B
+b0 J
+b1 M
+0I
+xA
+b1010 Z
+b1010 f
+b11000010x P
+b1010 ]
+b1010 l
+b1011 \
+b1011 r
+b1011 &
+b1011 -
+b1011 6
+b1011 X
+b1011 Y
+b1011 q
+b10011 G
+b10100101000010001 j
+b1010 m
+b1010 n
+b10001 o
+bx0000000000000000000000000000010100000000000000000000000000001011xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx00000000000000000000000000000000 !
+bx0000000000000000000000000000010100000000000000000000000000001011xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx00000000000000000000000000000000 '
+bx0000000000000000000000000000010100000000000000000000000000001011xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx00000000000000000000000000000000 8
+bx0000000000000000000000000000010100000000000000000000000000001011xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx00000000000000000000000000000000 [
+bx0000000000000000000000000000010100000000000000000000000000001011xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx00000000000000000000000000000000 s
+b100000 u
+bx ^
+b101001010000100010010011 "
+b101001010000100010010011 %
+b101001010000100010010011 *
+b101001010000100010010011 1
+b101001010000100010010011 3
+b101001010000100010010011 U
+bx0000000000000000000000000000010100000000000000000000000000001011xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx00000000000000000000000000000000 t
+b11100 _
+b11000 ,
+b11000 2
+b11000 @
+b11000 a
+1#
+#70
+0#
+#75
+1O
+15
+b0 b
+b0 +
+b0 /
+b0 =
+b0 S
+b0 `
+b0 i
+b0 p
+b0 Z
+b0 f
+b0 g
+b0 c
+b0 e
+b0 ]
+b0 l
+b0 \
+b0 r
+b0 &
+b0 -
+b0 6
+b0 X
+b0 Y
+b0 q
+b0 G
+b0 j
+b0 m
+b0 n
+b0 o
+b100000 v
+b0 "
+b0 %
+b0 *
+b0 1
+b0 3
+b0 U
+bx00000000000000000000000000010101xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx0000000000000000000000000000010100000000000000000000000000001011xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx00000000000000000000000000000000 !
+bx00000000000000000000000000010101xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx0000000000000000000000000000010100000000000000000000000000001011xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx00000000000000000000000000000000 '
+bx00000000000000000000000000010101xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx0000000000000000000000000000010100000000000000000000000000001011xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx00000000000000000000000000000000 8
+bx00000000000000000000000000010101xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx0000000000000000000000000000010100000000000000000000000000001011xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx00000000000000000000000000000000 [
+bx00000000000000000000000000010101xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx0000000000000000000000000000010100000000000000000000000000001011xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx00000000000000000000000000000000 s
+b100000 u
+b100000 _
+b11100 ,
+b11100 2
+b11100 @
+b11100 a
+bx00000000000000000000000000010101xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx0000000000000000000000000000010100000000000000000000000000001011xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx00000000000000000000000000000000 t
+1#
