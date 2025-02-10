@@ -1,7 +1,7 @@
 module datapath ( input   logic clk, rst,
                                 regWrite, PCsrc,
                                 ALUsrcB, Jsrc,
-                  input   logic[ALUcontrolWidth - 1 : 0] ALUcontrol,
+                  input   logic[3  : 0] ALUcontrol,
                   input   logic[1  : 0] immSrc, resultSrc, ALUsrcA,
                   input   logic[31 : 0] instr, readData,
                   output  logic zero, negative, overflow, carry,
