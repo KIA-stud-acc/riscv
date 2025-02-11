@@ -2,12 +2,21 @@ module datapath ( input   logic clk, rst,
                                 regWrite, PCsrc,
                                 ALUsrcB, Jsrc,
                   input   logic[3  : 0] ALUcontrol,
-                  input   logic[1  : 0] immSrc, resultSrc, ALUsrcA,
+                  input   logic[1  : 0] resultSrc, ALUsrcA,
+                  input   logic[2  : 0] immSrc,
                   input   logic[31 : 0] instr, readData,
                   output  logic zero, negative, overflow, carry,
                   output  logic[31 : 0] dataAdr, writeData, PC,
                   output  logic[31:0][31:0] regs 
                   );
+
+  initial begin
+    forever begin
+      @(posedge clk);
+      #3;
+      $display("instr - %8h, z - %b, n - %b, o - %b, c - %b",instr ,zero, negative, overflow, carry);
+    end
+  end
 
   logic [31:0] srcA, srcB, srcB0, ALUresult, result, rd;
   logic [31:0] PCplus4;

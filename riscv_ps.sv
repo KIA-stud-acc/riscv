@@ -5,7 +5,8 @@ module riscv_ps(input   logic         clk, rst,
                 output  logic[31:0][31:0] regs );
 
   logic      zero, negative, overflow, carry;
-  logic[1:0] immSrc, resultSrc, ALUsrcA;
+  logic[1:0] resultSrc, ALUsrcA;
+  logic[2:0] immSrc;
   logic[3:0] ALUcontrol;
   logic regWrite, PCsrc, ALUsrcB, Jsrc;
 
