@@ -17,9 +17,10 @@ module testbench;
   end
 
   initial begin
+    repeat(2) @(posedge clk);
     forever begin
       @(posedge clk);
-      if (~rst) $display("%h", instr);
+      $display("%h", instr);
     end
   end
 

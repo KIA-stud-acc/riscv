@@ -85,3 +85,8 @@ module controller(input  logic[6:0] op,
   
   assign PCsrc = jump | (branch & condIsTrue);
 endmodule
+
+
+
+  
+  
