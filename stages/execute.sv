@@ -4,7 +4,8 @@ module execute( input  logic[31 : 0]  immExtE, rd1E, rd2E, PCE,
                 input  logic          jumpE, branchE, JsrcE,
                 input  logic          ALUsrcBE, 
                 output logic          PCsrcE,       
-                output logic[31 : 0]  PCtargetE, ALUresultE);
+                output logic[31 : 0]  PCtargetE, ALUresultE
+              );
 
   assign        PCtargetE = (JsrcE ? rd1E : PCE) + immExtE;
 
