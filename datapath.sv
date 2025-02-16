@@ -39,7 +39,7 @@ module datapath ( input   logic clk, rst,
 
   immExt  ie(.immSrc(immSrc), .imm(instr[31:7]), .immExt(immExt));
 
-  regFile rf(.adrr1(instr[19:15]), .adrr2(instr[24:20]), .adrw(instr[11:7]), .wd(ALUresult), .we(regWrite), .clk(clk), .rd1(rd), .rd2(srcB0), .regs(regs));
+  regFile rf(.adrr1(instr[19:15]), .adrr2(instr[24:20]), .adrw(instr[11:7]), .wd(result), .we(regWrite), .clk(clk), .rd1(rd), .rd2(srcB0), .regs(regs));
 
   assign writeData = srcB0;
   assign dataAdr   = ALUresult;
