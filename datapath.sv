@@ -1,14 +1,11 @@
 module datapath ( input   logic clk, rst,
-                                ALUsrcB, Jsrc,
-                  input   logic[3  : 0] ALUcontrol,
-                  input   logic[1  : 0] resultSrc, ALUsrcA,
-                  input   logic[31 : 0] instr, readData,
-                  output  logic zero, negative, overflow, carry,
-                  output  logic[31 : 0] dataAdr, writeData, PC,
-                  output  logic[31:0][31:0] regs 
+                                Jsrc,
+                  input   logic[1  : 0] resultSrc,
+                  input   logic[31 : 0] readData,
+                  output  logic[31 : 0] dataAdr, writeData, PC, 
                   );
 
-  logic [31:0] srcA, srcB,  ALUresult;
+  
   
   
 
@@ -19,16 +16,9 @@ module datapath ( input   logic clk, rst,
   assign writeData = srcB0;
   assign dataAdr   = ALUresult;
 
-  assign srcB = ALUsrcB ? immExt : srcB0;
+  
 
-  always_comb begin
-    case(ALUsrcA)
-      2'b00:   srcA = rd;
-      2'b01:   srcA = PC;
-      2'b10:   srcA = '0;
-      default: srcA = 'x;
-    endcase
-  end
+  
 
   ALU     alu(.ALUcontrol(ALUcontrol), .srcA(srcA), .srcB(srcB), .zero(zero), .negative(negative), .overflow(overflow), .carry(carry), .ALUresult(ALUresult));
 

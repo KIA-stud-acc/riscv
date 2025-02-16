@@ -70,20 +70,7 @@ module controller(input  logic[6:0] op,
   end
 
 
-  logic condIsTrue;
-  always_comb begin //PCsrc / branch module
-    case (funct3)
-      3'b000:  condIsTrue = zero;
-      3'b001:  condIsTrue = ~zero;
-      3'b100:  condIsTrue = negative^overflow;
-      3'b101:  condIsTrue = ~(negative^overflow);
-      3'b110:  condIsTrue = carry;
-      3'b111:  condIsTrue = ~carry;
-      default: condIsTrue = 'x;
-    endcase
-  end
   
-  assign PCsrc = jump | (branch & condIsTrue);
 endmodule
 
 
