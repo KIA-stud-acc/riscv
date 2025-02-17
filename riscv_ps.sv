@@ -22,5 +22,19 @@ module riscv_ps(input   logic         clk, rst,
                 .ALUsrcB(ALUsrcB), .regWrite(regWrite), .Jsrc(Jsrc), .resultSrc(resultSrc), .ALUsrcA(ALUsrcA), 
                 .immSrc(immSrc), .ALUcontrol(ALUcontrol), .branch(branch));
 
-  hazard      h();
+
+  logic[4 :0] rs1E, rs2E, rdM, rdW;
+  logic       regWriteM, regWriteW;
+  logic[1 :0] forwardAE, forwardBE;
+  logic[4 :0] rs1D, rs2D, rdE;
+  logic       resultSrcE0, jumpD;
+  logic       stallF, stallD;
+  logic       PCsrcE;
+  logic       flushD, flushE;
+
+  hazard      h(.rs1E(rs1E), .rs2E(rs2E), .rdM(rdM), .rdW(rdW), .regWriteM(regWriteM), .regWriteW(regWriteW),
+                .forwardAE(forwardAE), .forwardBE(forwardBE), .rs1D(rs1D), .rs2D(rs2D), .rdE(rdE),
+                .resultSrcE0(resultSrcE0), .jumpD(jumpD), .stallF(stallF), .stallD(stallD), 
+                .PCsrcE(PCsrcE), .flushD(flushD), .flushE(flushE));
+
 endmodule

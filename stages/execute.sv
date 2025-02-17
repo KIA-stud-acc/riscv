@@ -1,12 +1,12 @@
 `include "ALU.sv"
 
-module execute( input  logic[31 : 0]  immExtE, rd1E, rd2E, PCE, 
+module execute( input  logic[31 : 0]  immExtE, rd1E, rd2E, PCE, ALUresultM, resultW,
                 input  logic[3  : 0]  ALUcontrolE,
-                input  logic[1  : 0]  ALUsrcAE,
+                input  logic[1  : 0]  ALUsrcAE, forwardAE, forwardBE,
                 input  logic          jumpE, branchE, JsrcE,
                 input  logic          ALUsrcBE, 
                 output logic          PCsrcE,       
-                output logic[31 : 0]  PCtargetE, ALUresultE
+                output logic[31 : 0]  PCtargetE, ALUresultE, writeDataE
               );
 
   assign        PCtargetE = (JsrcE ? rd1E : PCE) + immExtE;
@@ -15,14 +15,29 @@ module execute( input  logic[31 : 0]  immExtE, rd1E, rd2E, PCE,
 
   always_comb begin
     case(ALUsrcAE)
-      2'b00:   srcA = rd1E;
+      2'b00:   case(forwardAE)
+                  2'b00: srcA = rd1E;
+                  2'b01: srcA = resultW;
+                  2'b10: srcA = ALUresultM;
+               endcase
       2'b01:   srcA = PCE;
       2'b10:   srcA = '0;
       default: srcA = 'x;
     endcase
   end
 
-  assign srcB = ALUsrcBE ? immExtE : rd2E;
+  always_comb begin
+    if (ALUsrcBE) begin
+      srcB          = immExtE;
+    end
+    else begin
+      case(forwardBE)
+        2'b00: srcB = rd2E;
+        2'b01: srcB = resultW;
+        2'b10: srcB = ALUresultM;
+      endcase
+    end
+  end
 
   ALU   alu(.ALUcontrol(ALUcontrolE), .srcA(srcA), .srcB(srcB), .zero(zero), .negative(negative), .overflow(overflow), .carry(carry), .ALUresult(ALUresultE));
 

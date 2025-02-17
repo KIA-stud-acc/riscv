@@ -11,19 +11,38 @@ module datapath ( input   logic         clk, rst,
                   input   logic[31 : 0] instrF, readDataM,
                   output  logic         memWriteM,
                   output  logic[31 : 0] dataAdrM, writeDataM, PCF,
-                  output  logic[31 : 0][31:0] regs
+                  output  logic[31 : 0][31:0] regs,
+
+
+                  output  logic[4 :0] rs1E, rs2E, rdM, rdW,
+                  output  logic       regWriteM, regWriteW,
+                  input   logic[1 :0] forwardAE, forwardBE,
+
+                  output  logic[4 :0] rs1D, rs2D, rdE,
+                  output  logic       resultSrcE0, jumpD, 
+                  input   logic       stallF, stallD, 
+
+                  output  logic       PCsrcE,
+                  input   logic       flushD, flushE
                 );
 
   
-  fetch  f(.clk(clk), .rst(rst), .PCsrcE(PCsrcE), .PCtargetE(PCtargetE), .PCF(PCF), .PCplus4F(PCplus4F));
+  fetch  f(.clk(clk), .rst(rst), .PCsrcE(PCsrcE), .PCtargetE(PCtargetE), .PCF(PCF), .PCplus4F(PCplus4F), .stallF(stallF));
 
 /////////////////////////////////////////////////////////
 
   logic[31 : 0] instrD, PCD, PCplus4D;
   always_ff @(posedge clk) begin
-    instrD   <= instrF;
-    PCD      <= PCF;
-    PCplus4D <= PCplus4F;
+    if (flushD) begin
+      instrD   <= '0;
+      PCD      <= 'x;
+      PCplus4D <= 'x;
+    end
+    else if (~stallD) begin
+      instrD   <= instrF;
+      PCD      <= PCF;
+      PCplus4D <= PCplus4F;
+    end
   end
 
   logic[4 : 0] rs1D, rs2D, rdD;
@@ -50,14 +69,23 @@ module datapath ( input   logic         clk, rst,
   logic        jumpE, branchE JsrcE, ALUsrcBE, memWriteE, regWriteE;
   logic[1 : 0] resultSrcE, ALUsrcAE;
   logic[3 : 0] ALUcontrolE;
+
+  assign       resultSrcE0 = resultSrcE[0];
+
   always_ff @(posedge clk) begin //control signals
-    {jumpE, branchE, JsrcE, ALUsrcBE, memWriteE, regWriteE, resultSrcE, ALUsrcAE, ALUcontrolE} <= {jumpD, branchD, JsrcD, ALUsrcBD, memWriteD, regWriteD, resultSrcD, ALUsrcAD, ALUcontrolD};
+    if (flushE) begin
+      {jumpE, branchE, JsrcE, ALUsrcBE, memWriteE, regWriteE, resultSrcE, ALUsrcAE, ALUcontrolE} <= 14'b0_0_x_x_0_0_xx_xx_xxxx;
+    end
+    else begin
+      {jumpE, branchE, JsrcE, ALUsrcBE, memWriteE, regWriteE, resultSrcE, ALUsrcAE, ALUcontrolE} <= {jumpD, branchD, JsrcD, ALUsrcBD, memWriteD, regWriteD, resultSrcD, ALUsrcAD, ALUcontrolD};
+    end
   end
 
   logic         PCsrcE;
   logic[31: 0]  PCtargetE, ALUresultE;
   execute e(.immExtE(immExtE), .rd1E(rd1E), .rd2E(rd2E), .PCE(PCE), .ALUcontrolE(ALUcontrolE), .ALUsrcAE(ALUsrcAE), 
-            .jumpE(jumpE), .branchE(branchE), .JsrcE(JsrcE), .ALUsrcBE(ALUsrcBE), .PCsrcE(PCsrcE), .PCtargetE(PCtargetE), .ALUresultE(ALUresultE));
+            .jumpE(jumpE), .branchE(branchE), .JsrcE(JsrcE), .ALUsrcBE(ALUsrcBE), .PCsrcE(PCsrcE), .PCtargetE(PCtargetE), .ALUresultE(ALUresultE),
+            .forwardAE(forwardAE), .forwardBE(forwardBE), .ALUresultM(ALUresultM), .resultW(resultW));
 
 /////////////////////////////////////////////////////////
 

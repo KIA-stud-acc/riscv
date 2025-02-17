@@ -1,4 +1,4 @@
-module fetch( input   logic         clk, rst, PCsrcE,
+module fetch( input   logic         clk, rst, PCsrcE, stallF,
               input   logic[31 : 0] PCtargetE,
               output  logic[31 : 0] PCF, PCplus4F
             );
@@ -10,7 +10,7 @@ module fetch( input   logic         clk, rst, PCsrcE,
     if (rst) begin
       PCF <= '0;
     end
-    else begin
+    else if (~stallF) begin
       PCF <= PCsrcE ? PCtargetE : PCplus4F;
     end
   end
