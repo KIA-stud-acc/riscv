@@ -4,7 +4,7 @@
 `include "./stages/writeback.sv"
 
 module datapath ( input   logic         clk, rst,
-                  input   logic         jumpD, branchD, regWriteD, JsrcD, ALUsrcBD, memWriteD, regWriteD,
+                  input   logic         jumpD, branchD, JsrcD, ALUsrcBD, memWriteD, regWriteD,
                   input   logic[1  : 0] resultSrcD, ALUsrcAD, 
                   input   logic[2  : 0] immSrcD,
                   input   logic[3  : 0] ALUcontrolD,
