@@ -3,7 +3,7 @@ module controller(input  logic[6:0] op,
                   input  logic      funct7, zero, negative, overflow, carry,
                   output logic  PCsrc, memWrite,
                                 ALUsrcB, regWrite,
-                                Jsrc,
+                                Jsrc, branch, jump,
                   output logic[1:0] resultSrc, ALUsrcA,
                   output logic[2:0] immSrc,
                   output logic[3:0] ALUcontrol 
@@ -11,7 +11,6 @@ module controller(input  logic[6:0] op,
 
   logic[14:0] controls;
   logic[1:0]  ALUop;
-  logic       branch, jump;
   assign     {branch, resultSrc, memWrite, ALUsrcA, ALUsrcB, regWrite, immSrc, ALUop, jump, Jsrc} = controls;
 
   always_comb begin //main decoder
@@ -68,8 +67,6 @@ module controller(input  logic[6:0] op,
       default: ALUcontrol = 'x;
     endcase
   end
-
-
   
 endmodule
 
