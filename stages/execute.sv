@@ -1,3 +1,5 @@
+`include "ALU.sv"
+
 module execute( input  logic[31 : 0]  immExtE, rd1E, rd2E, PCE, 
                 input  logic[3  : 0]  ALUcontrolE,
                 input  logic[1  : 0]  ALUsrcAE,
