@@ -101,7 +101,7 @@ module datapath ( input   logic         clk, rst,
   logic [31: 0] resultW;
   writeback w(.ALUresultW(ALUresultW), .readDataW(readDataW), .PCplus4W(PCplus4W), .resultSrcW(resultSrcW), .resultW(resultW));
 
-
+/
 
 
 
