@@ -12,9 +12,9 @@ module riscv_ps(input   logic         clk, rst,
   logic[2 :0] immSrc;
   logic[3 :0] ALUcontrol;
   logic[31:0] instrD;
-  logic       regWrite, jump, branch, ALUsrcB, Jsrc, memWriteD;
+  logic       regWrite, branch, ALUsrcB, Jsrc, memWriteD;
 
-  datapath    dp( .clk(clk), .rst(rst), .regWriteD(regWrite), .jumpD(jump), .branchD(branch), .ALUsrcBD(ALUsrcB), 
+  datapath    dp( .clk(clk), .rst(rst), .regWriteD(regWrite), .jumpD(jumpD), .branchD(branch), .ALUsrcBD(ALUsrcB), 
                   .JsrcD(Jsrc), .ALUcontrolD(ALUcontrol), .immSrcD(immSrc), .resultSrcD(resultSrc), .ALUsrcAD(ALUsrcA), 
                   .instrF(instr), .readDataM(readData), .dataAdrM(dataAdr), .writeDataM(writeData), .PCF(PC), .regs(regs),
                   .memWriteM(memWriteM), .memWriteD(memWriteD), .stallF(stallF), .stallD(stallD), .flushD(flushD), .flushE(flushE),
@@ -22,7 +22,7 @@ module riscv_ps(input   logic         clk, rst,
                   .forwardAE(forwardAE), .forwardBE(forwardBE), .rs1D(rs1D), .rs2D(rs2D), .rdE(rdE),
                   .resultSrcE0(resultSrcE0), .PCsrcE(PCsrcE), .instrD(instrD));
 
-  controller  c(.op(instrD[6:0]), .funct3(instrD[14:12]), .funct7(instrD[30]), .jump(jump), .memWrite(memWriteD), 
+  controller  c(.op(instrD[6:0]), .funct3(instrD[14:12]), .funct7(instrD[30]), .jump(jumpD), .memWrite(memWriteD), 
                 .ALUsrcB(ALUsrcB), .regWrite(regWrite), .Jsrc(Jsrc), .resultSrc(resultSrc), .ALUsrcA(ALUsrcA), 
                 .immSrc(immSrc), .ALUcontrol(ALUcontrol), .branch(branch));
 

@@ -130,8 +130,8 @@ module datapath ( input   logic         clk, rst,
       #4;
       $display("DATAPATH HAZARD %h %h %h %h", stallF, stallD, flushD, flushE);
       $display("DATAPATHF %h %h", PCF, instrF);
-      $display("DATAPATHD %h %h %h %h %h %h %h %h", instrD, PCD, rdD, rd1D, rd2D, immSrcD, immExtD, regWriteD);
-      $display("DATAPATHE %h %h %h %h %h %h %h %h %h %h", forwardAE, forwardBE, rd1E, rd2E, ALUcontrolE,ALUsrcAE,ALUsrcBE, immExtE, ALUresultE,regWriteE);
+      $display("DATAPATHD %h %h %h %h %h %h %h %h %h", instrD, PCD, rdD, rd1D, rd2D, immSrcD, immExtD, regWriteD, jumpD);
+      $display("DATAPATHE %h %h %h %h %h %h %h %h %h %h %h %h", forwardAE, forwardBE, rd1E, rd2E, ALUcontrolE,ALUsrcAE,ALUsrcBE, immExtE, ALUresultE,regWriteE, resultSrcE, rdE);
       $display("DATAPATHM %h %h %h %h %h %h", ALUresultM, regWriteM, dataAdrM, writeDataM,readDataM, memWriteM);
       $display("DATAPATHW %h %h %h %h %h", ALUresultW,readDataW, resultSrcW, resultW, regWriteW);
     end

@@ -35,15 +35,15 @@ module testbench;
   top dut(.clk(clk), .rst(rst), .instr1(instr), .regs(regs));
 
   initial begin
-    wait (|instr == 1'b0);
-    repeat(5) @(posedge clk); 
+    wait (|instr == 1'b0 || (instr == 32'h00008067 && regs[1] == 'x));
+    repeat(3) @(posedge clk); 
     $finish();
   end
   initial begin
     forever begin
       @(negedge clk); 
       #1;
-      for (int i = 0; i < 6; i++) begin
+      for (int i = 0; i < 15; i++) begin
         $display("x%-2d - %08h", i, (i == 0) ? 0 : regs[i]);
       end
       $display("\n");
