@@ -60,8 +60,8 @@ module datapath ( input   logic clk, rst,
   always_comb begin
     case(resultSrc)
       2'b00:   result = ALUresult;
-      2'b01:   result = PCplus4;
-      2'b10:   result = readData;
+      2'b01:   result = readData;
+      2'b10:   result = PCplus4;
       default: result = 'x;
     endcase
   end
