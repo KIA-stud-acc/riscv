@@ -1,3 +1,7 @@
+`include "riscv_ps.sv"
+`include "instrMem.sv"
+`include "dataMem.sv"
+
 module top( input  logic clk, rst,
             output logic[31:0] instr1,
             output logic[31:0][31:0] regs 

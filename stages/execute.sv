@@ -2,6 +2,7 @@
 
 module execute( input  logic[31 : 0]  immExtE, rd1E, rd2E, PCE, ALUresultM, resultW,
                 input  logic[3  : 0]  ALUcontrolE,
+                input  logic[2  : 0]  funct3,
                 input  logic[1  : 0]  ALUsrcAE, forwardAE, forwardBE,
                 input  logic          jumpE, branchE, JsrcE,
                 input  logic          ALUsrcBE, 
@@ -11,7 +12,7 @@ module execute( input  logic[31 : 0]  immExtE, rd1E, rd2E, PCE, ALUresultM, resu
 
   assign        PCtargetE = (JsrcE ? rd1E : PCE) + immExtE;
 
-  logic [31:0]  srcA, srcB,  ALUresultE;
+  logic [31:0]  srcA, srcB;
 
   always_comb begin
     case(ALUsrcAE)

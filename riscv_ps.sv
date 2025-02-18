@@ -13,7 +13,7 @@ module riscv_ps(input   logic         clk, rst,
   logic[3:0] ALUcontrol;
   logic regWrite, jump, branch, ALUsrcB, Jsrc, memWriteD;
 
-  datapath    dp( .clk(clk), .rst(rst), .regWriteD(regWrite), .jumpD(.jump), .branchD(branch), .ALUsrcBD(ALUsrcB), 
+  datapath    dp( .clk(clk), .rst(rst), .regWriteD(regWrite), .jumpD(jump), .branchD(branch), .ALUsrcBD(ALUsrcB), 
                   .JsrcD(Jsrc), .ALUcontrolD(ALUcontrol), .immSrcD(immSrc), .resultSrcD(resultSrc), .ALUsrcAD(ALUsrcA), 
                   .instrF(instr), .readDataM(readData), .dataAdrM(dataAdr), .writeDataM(writeData), .PCF(PC), .regs(regs),
                   .memWriteM(memWriteM), .memWriteD(memWriteD));

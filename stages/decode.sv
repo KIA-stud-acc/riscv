@@ -1,10 +1,10 @@
-`include "../immExt.sv"
-`include "../regFile.sv"
+`include "./stages/decode/immExt.sv"
+`include "./stages/decode/regFile.sv"
 
 module decode(input  logic[31 : 0]     instrD,
               input  logic[31 : 0]     resultW,
               input  logic[2  : 0]     immSrcD,
-              input  logic             regWriteW, clk
+              input  logic             regWriteW, clk,
               output logic[4  : 0]     rs1D, rs2D, rdD,
               output logic[31 : 0]     rd1D, rd2D, immExtD,
               output logic[31:0][31:0] regs

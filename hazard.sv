@@ -11,10 +11,10 @@ module hazard(input  logic[4 :0] rs1E, rs2E, rdM, rdW,
              );
 
   always_comb begin
-    if ((rs1E == rdM) & regWriteM) & (rs1E != '0) begin
+    if (((rs1E == rdM) & regWriteM) & (rs1E != '0)) begin
       forwardAE = 2'b10;
     end
-    else if ((rs1E == rdW) & regWriteW) & (rs1E != '0) begin
+    else if (((rs1E == rdW) & regWriteW) & (rs1E != '0)) begin
       forwardAE = 2'b01;
     end
     else begin
@@ -23,14 +23,14 @@ module hazard(input  logic[4 :0] rs1E, rs2E, rdM, rdW,
   end
 
   always_comb begin
-    if ((rs2E == rdM) & regWriteM) & (rs2E != '0) begin
-      forwardAE = 2'b10;
+    if (((rs2E == rdM) & regWriteM) & (rs2E != '0)) begin
+      forwardBE = 2'b10;
     end
-    else if ((rs2E == rdW) & regWriteW) & (rs2E != '0) begin
-      forwardAE = 2'b01;
+    else if (((rs2E == rdW) & regWriteW) & (rs2E != '0)) begin
+      forwardBE = 2'b01;
     end
     else begin
-      forwardAE = 2'b00;
+      forwardBE = 2'b00;
     end
   end
 
