@@ -41,6 +41,6 @@ module hazard(input  logic[4 :0] rs1E, rs2E, rdM, rdW,
 
   //логика очистки, если произошло ветвление (под изменение после добавления предсказания переходов)
   assign flushD = PCsrcE;
-  assign dlushE = PCsrcE | lwStall;
+  assign flushE = PCsrcE | lwStall;
 
 endmodule

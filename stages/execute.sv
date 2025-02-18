@@ -28,15 +28,19 @@ module execute( input  logic[31 : 0]  immExtE, rd1E, rd2E, PCE, ALUresultM, resu
   end
 
   always_comb begin
+    case(forwardBE)
+      2'b00: writeDataE = rd2E;
+      2'b01: writeDataE = resultW;
+      2'b10: writeDataE = ALUresultM;
+    endcase
+  end
+
+  always_comb begin
     if (ALUsrcBE) begin
-      srcB          = immExtE;
+      srcB = immExtE;
     end
     else begin
-      case(forwardBE)
-        2'b00: srcB = rd2E;
-        2'b01: srcB = resultW;
-        2'b10: srcB = ALUresultM;
-      endcase
+      srcB = writeDataE;
     end
   end
 

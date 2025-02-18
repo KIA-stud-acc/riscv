@@ -52,7 +52,7 @@ module datapath ( input   logic         clk, rst,
 
 /////////////////////////////////////////////////////////
 
-  logic[31: 0] rd1E, rd2E, immExtE;
+  logic[31: 0] rd1E, rd2E, immExtE, writeDataE;
   logic[31: 0] PCE, PCplus4E;
   logic[2 : 0] funct3E;
   always_ff @(posedge clk) begin //data
@@ -85,16 +85,16 @@ module datapath ( input   logic         clk, rst,
   logic[31: 0]  PCtargetE, ALUresultE;
   execute e(.immExtE(immExtE), .rd1E(rd1E), .rd2E(rd2E), .PCE(PCE), .ALUcontrolE(ALUcontrolE), .ALUsrcAE(ALUsrcAE), 
             .jumpE(jumpE), .branchE(branchE), .JsrcE(JsrcE), .ALUsrcBE(ALUsrcBE), .PCsrcE(PCsrcE), .PCtargetE(PCtargetE), .ALUresultE(ALUresultE),
-            .forwardAE(forwardAE), .forwardBE(forwardBE), .ALUresultM(ALUresultM), .resultW(resultW), .funct3(funct3E));
+            .forwardAE(forwardAE), .forwardBE(forwardBE), .ALUresultM(ALUresultM), .resultW(resultW), .funct3(funct3E), .writeDataE(writeDataE));
 
 /////////////////////////////////////////////////////////
 
-  logic[31: 0] ALUresultM, rd2M; //rd2M поменяется на writeDataM
+  logic[31: 0] ALUresultM;
   logic[31: 0] PCplus4M;
   always_ff @(posedge clk) begin //data
     PCplus4M    <= PCplus4E;
     rdM         <= rdE;
-    rd2M        <= rd2E;
+    writeDataM  <= writeDataE;
     ALUresultM  <= ALUresultE;
   end
 
@@ -104,11 +104,10 @@ module datapath ( input   logic         clk, rst,
   end
 
   assign dataAdrM   = ALUresultM;
-  assign writeDataM = rd2M;
 
 /////////////////////////////////////////////////////////
 
-  logic[31: 0] ALUresultW, readDataW; //rd2M поменяется на writeDataM
+  logic[31: 0] ALUresultW, readDataW;
   logic[31: 0] PCplus4W;
   always_ff @(posedge clk) begin //data
     PCplus4W    <= PCplus4M;
@@ -129,12 +128,12 @@ module datapath ( input   logic         clk, rst,
     forever begin
       @(posedge clk);
       #4;
-      $display("DATAPATH1 %h %h %h %h", resultSrcW, ALUresultW, PCplus4W, readDataW);
+      $display("DATAPATH HAZARD %h %h %h %h", stallF, stallD, flushD, flushE);
       $display("DATAPATHF %h %h", PCF, instrF);
       $display("DATAPATHD %h %h %h %h %h %h %h %h", instrD, PCD, rdD, rd1D, rd2D, immSrcD, immExtD, regWriteD);
       $display("DATAPATHE %h %h %h %h %h %h %h %h %h %h", forwardAE, forwardBE, rd1E, rd2E, ALUcontrolE,ALUsrcAE,ALUsrcBE, immExtE, ALUresultE,regWriteE);
-      $display("DATAPATHM %h %h", ALUresultM, regWriteM);
-      $display("DATAPATHW %h %h %h %h", ALUresultW, resultSrcW, resultW, regWriteW);
+      $display("DATAPATHM %h %h %h %h %h %h", ALUresultM, regWriteM, dataAdrM, writeDataM,readDataM, memWriteM);
+      $display("DATAPATHW %h %h %h %h %h", ALUresultW,readDataW, resultSrcW, resultW, regWriteW);
     end
   end
   
