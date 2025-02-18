@@ -34,14 +34,19 @@ module testbench;
 
   top dut(.clk(clk), .rst(rst), .instr1(instr), .regs(regs));
 
-  always_comb begin
-    if (|instr == 1'b0) begin
-      repeat(3) @(posedge clk); 
-      for (int i = 0; i < 32; i++) begin
+  initial begin
+    wait (|instr == 1'b0);
+    repeat(5) @(posedge clk); 
+    $finish();
+  end
+  initial begin
+    forever begin
+      @(negedge clk); 
+      #1;
+      for (int i = 0; i < 6; i++) begin
         $display("x%-2d - %08h", i, (i == 0) ? 0 : regs[i]);
       end
-      $finish();
+      $display("\n");
     end
   end
-
 endmodule

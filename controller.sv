@@ -23,7 +23,7 @@ module controller(input  logic[6:0] op,
       7'b1100_011: controls = 15'b1_xx_0_00_0_0_010_10_0_0;//B
       7'b1100_111: controls = 15'bx_10_0_00_1_1_000_00_1_1;//jalr
       7'b1101_111: controls = 15'bx_10_0_xx_x_1_100_xx_1_0;//jal
-      default:     controls = 15'b0_xx_0_xx_x_0_xxx_xx_0_x;//invalid op
+      default:     controls = 15'b0_00_0_xx_x_0_xxx_xx_0_x;//invalid op
     endcase
   end 
 

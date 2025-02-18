@@ -3,6 +3,7 @@
 
 module decode(input  logic[31 : 0]     instrD,
               input  logic[31 : 0]     resultW,
+              input  logic[4  : 0]     rdW,
               input  logic[2  : 0]     immSrcD,
               input  logic             regWriteW, clk,
               output logic[4  : 0]     rs1D, rs2D, rdD,
@@ -16,6 +17,6 @@ module decode(input  logic[31 : 0]     instrD,
   assign  rs2D = instrD[24:20];
   assign  rdD  = instrD[11: 7];
 
-  regFile rf(.adrr1(rs1D), .adrr2(rs2D), .adrw(rdD), .wd(resultW), .we(regWriteW), .clk(clk), .rd1(rd1D), .rd2(rd2D), .regs(regs));
+  regFile rf(.adrr1(rs1D), .adrr2(rs2D), .adrw(rdW), .wd(resultW), .we(regWriteW), .clk(clk), .rd1(rd1D), .rd2(rd2D), .regs(regs));
 
 endmodule

@@ -10,7 +10,7 @@ module datapath ( input   logic         clk, rst,
                   input   logic[3  : 0] ALUcontrolD,
                   input   logic[31 : 0] instrF, readDataM,
                   output  logic         memWriteM,
-                  output  logic[31 : 0] dataAdrM, writeDataM, PCF,
+                  output  logic[31 : 0] dataAdrM, writeDataM, PCF, instrD, 
                   output  logic[31 : 0][31:0] regs,
 
 
@@ -26,14 +26,14 @@ module datapath ( input   logic         clk, rst,
                   input   logic       flushD, flushE
                 );
 
-  
+  logic[31:0] PCplus4F;
   fetch  f(.clk(clk), .rst(rst), .PCsrcE(PCsrcE), .PCtargetE(PCtargetE), .PCF(PCF), .PCplus4F(PCplus4F), .stallF(stallF));
 
 /////////////////////////////////////////////////////////
 
-  logic[31 : 0] instrD, PCD, PCplus4D;
+  logic[31 : 0] PCD, PCplus4D;
   always_ff @(posedge clk) begin
-    if (flushD) begin
+    if (flushD || rst) begin
       instrD   <= '0;
       PCD      <= 'x;
       PCplus4D <= 'x;
@@ -47,7 +47,7 @@ module datapath ( input   logic         clk, rst,
 
   logic[4 : 0] rdD;
   logic[31: 0] rd1D, rd2D, immExtD;
-  decode d( .clk(clk), .instrD(instrD), .resultW(resultW), .immSrcD(immSrcD), .regWriteW(regWriteW), 
+  decode d( .clk(clk), .instrD(instrD), .resultW(resultW), .immSrcD(immSrcD), .regWriteW(regWriteW), .rdW(rdW),
             .rs1D(rs1D), .rs2D(rs2D), .rdD(rdD), .rd1D(rd1D), .rd2D(rd2D), .immExtD(immExtD), .regs(regs));
 
 /////////////////////////////////////////////////////////
@@ -74,8 +74,8 @@ module datapath ( input   logic         clk, rst,
   assign       resultSrcE0 = resultSrcE[0];
 
   always_ff @(posedge clk) begin //control signals
-    if (flushE) begin
-      {jumpE, branchE, JsrcE, ALUsrcBE, memWriteE, regWriteE, resultSrcE, ALUsrcAE, ALUcontrolE} <= 14'b0_0_x_x_0_0_xx_xx_xxxx;
+    if (flushE || rst) begin
+      {jumpE, branchE, JsrcE, ALUsrcBE, memWriteE, regWriteE, resultSrcE, ALUsrcAE, ALUcontrolE} <= 14'b0_0_x_x_0_0_00_xx_xxxx;
     end
     else begin
       {jumpE, branchE, JsrcE, ALUsrcBE, memWriteE, regWriteE, resultSrcE, ALUsrcAE, ALUcontrolE} <= {jumpD, branchD, JsrcD, ALUsrcBD, memWriteD, regWriteD, resultSrcD, ALUsrcAD, ALUcontrolD};
@@ -125,10 +125,18 @@ module datapath ( input   logic         clk, rst,
   logic [31: 0] resultW;
   writeback w(.ALUresultW(ALUresultW), .readDataW(readDataW), .PCplus4W(PCplus4W), .resultSrcW(resultSrcW), .resultW(resultW));
 
- 
-
-  assign writeData = srcB0;
-  assign dataAdr   = ALUresult;
+ initial begin
+    forever begin
+      @(posedge clk);
+      #4;
+      $display("DATAPATH1 %h %h %h %h", resultSrcW, ALUresultW, PCplus4W, readDataW);
+      $display("DATAPATHF %h %h", PCF, instrF);
+      $display("DATAPATHD %h %h %h %h %h %h %h %h", instrD, PCD, rdD, rd1D, rd2D, immSrcD, immExtD, regWriteD);
+      $display("DATAPATHE %h %h %h %h %h %h %h %h %h %h", forwardAE, forwardBE, rd1E, rd2E, ALUcontrolE,ALUsrcAE,ALUsrcBE, immExtE, ALUresultE,regWriteE);
+      $display("DATAPATHM %h %h", ALUresultM, regWriteM);
+      $display("DATAPATHW %h %h %h %h", ALUresultW, resultSrcW, resultW, regWriteW);
+    end
+  end
   
 
 endmodule
