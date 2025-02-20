@@ -25,7 +25,7 @@ module execute( input  logic[31 : 0]  immExtE, rd1E, rd2E, PCE, ALUresultM, resu
     end
   end
 
-  assign bpUpdate = ~bpValidE;
+  assign bpUpdate = ~bpValidE&(jumpE|branchE);
 
   logic [31:0]  srcA, srcB;
 
@@ -77,7 +77,15 @@ module execute( input  logic[31 : 0]  immExtE, rd1E, rd2E, PCE, ALUresultM, resu
   end
   
   assign corr_pred = ((bpDestE != targetImmExt) && bpPredE) || ((jumpE | (branchE & condIsTrue)) ^ bpPredE);
-
+/*
+  initial begin
+    forever begin
+      #4;
+      $display("AAAAAAAAAAAAA %h %h %h %h %h %h %h %h %h", corr_pred, condIsTrue, funct3, zero, bpDestE, targetImmExt, bpPredE, jumpE, branchE);
+      $display("BBBBBBBBBBBBB %h %h %h %h", ALUcontrolE, srcA, srcB, ALUresultE);
+    end
+  end
+*/
   assign PCsrcE = corr_pred;
 
 endmodule

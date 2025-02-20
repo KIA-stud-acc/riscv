@@ -5,7 +5,7 @@ module regFile( input  logic[4:0]  adrr1, adrr2, adrw,
                 output logic[31:0][31:0] regs);
   logic [31:0][31:0] rf;
   assign rd1 = (adrr1 != 0) ? rf[adrr1] : '0;
-  assign rd2 = (adrr1 != 0) ? rf[adrr2] : '0;
+  assign rd2 = (adrr2 != 0) ? rf[adrr2] : '0;
 
   always_ff @(negedge clk) begin
     if (we) begin

@@ -146,6 +146,7 @@ module datapath ( input   logic         clk, rst,
       @(posedge clk);
       #4;
       $display("DATAPATH HAZARD %h %h %h %h", stallF, stallD, flushD, flushE);
+      $display("PREDICT %h %h %h %h %h %h %h %h %h %h", bpPred, bpValid, corr_pred, bpUpdate, bpDest, bpDestE, PCtargetE, bpPredE, jumpE, branchE);
       $display("DATAPATHF %h %h", PCF, instrF);
       $display("DATAPATHD %h %h %h %h %h %h %h %h %h", instrD, PCD, rdD, rd1D, rd2D, immSrcD, immExtD, regWriteD, jumpD);
       $display("DATAPATHE %h %h %h %h %h %h %h %h %h %h %h %h", forwardAE, forwardBE, rd1E, rd2E, ALUcontrolE,ALUsrcAE,ALUsrcBE, immExtE, ALUresultE,regWriteE, resultSrcE, rdE);
