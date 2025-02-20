@@ -2,7 +2,7 @@ module branch_prediction #(parameter clog2depth = 5)
                          (input  logic[31:0] adrr, adrw, wd,
                           input  logic       we, clk, rst, corr_pred,
                           output logic[31:0] dest,
-                          output logic       pred, valid //нужен ли валид?????
+                          output logic       pred, valid
                          );
 
   typedef struct packed {

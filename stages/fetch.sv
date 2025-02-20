@@ -1,5 +1,5 @@
-module fetch( input   logic         clk, rst, PCsrcE, stallF,
-              input   logic[31 : 0] PCtargetE,
+module fetch( input   logic         clk, rst, PCsrcE, stallF, bpPred,
+              input   logic[31 : 0] PCtargetE, bpDest,
               output  logic[31 : 0] PCF, PCplus4F
             );
 
@@ -11,7 +11,7 @@ module fetch( input   logic         clk, rst, PCsrcE, stallF,
       PCF <= '0;
     end
     else if (~stallF) begin
-      PCF <= PCsrcE ? PCtargetE : PCplus4F;
+      PCF <= PCsrcE ? PCtargetE : (bpPred ? bpDest : PCplus4F);
     end
   end
 

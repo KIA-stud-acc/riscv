@@ -1,16 +1,31 @@
 `include "ALU.sv"
 
-module execute( input  logic[31 : 0]  immExtE, rd1E, rd2E, PCE, ALUresultM, resultW,
+module execute( input  logic[31 : 0]  immExtE, rd1E, rd2E, PCE, ALUresultM, resultW, bpDestE,
                 input  logic[3  : 0]  ALUcontrolE,
                 input  logic[2  : 0]  funct3,
                 input  logic[1  : 0]  ALUsrcAE, forwardAE, forwardBE,
                 input  logic          jumpE, branchE, JsrcE,
+                input  logic          bpPredE, bpValidE,
                 input  logic          ALUsrcBE, 
-                output logic          PCsrcE,       
+                output logic          PCsrcE, corr_pred, bpUpdate,      
                 output logic[31 : 0]  PCtargetE, ALUresultE, writeDataE
               );
 
-  assign        PCtargetE = (JsrcE ? rd1E : PCE) + immExtE;
+  logic[31:0] target4, targetImmExt;
+  assign      target4      = PCE + 4;
+  assign      targetImmExt = (JsrcE ? rd1E : PCE) + immExtE;
+  always_comb begin
+    if (corr_pred) begin
+      if (bpPredE) begin
+        PCtargetE = target4;
+      end
+      else begin
+        PCtargetE = targetImmExt;
+      end
+    end
+  end
+
+  assign bpUpdate = ~bpValidE;
 
   logic [31:0]  srcA, srcB;
 
@@ -61,6 +76,8 @@ module execute( input  logic[31 : 0]  immExtE, rd1E, rd2E, PCE, ALUresultM, resu
     endcase
   end
   
-  assign PCsrcE = jumpE | (branchE & condIsTrue);
+  assign corr_pred = ((bpDestE != targetImmExt) && bpPredE) || ((jumpE | (branchE & condIsTrue)) ^ bpPredE);
+
+  assign PCsrcE = corr_pred;
 
 endmodule
