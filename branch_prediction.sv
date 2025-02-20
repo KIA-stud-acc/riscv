@@ -4,7 +4,7 @@ module branch_prediction #(parameter clog2depth = 5)
                           output logic[31:0] dest,
                           output logic       pred, valid
                          );
-
+  
   typedef struct packed {
     logic                      valid;
     logic[30-clog2depth-1 : 0] tag;
@@ -17,19 +17,25 @@ module branch_prediction #(parameter clog2depth = 5)
     cacheLine[1:0] line;
   } cacheSet;
 
-  cacheSet[clog2depth-1 : 0] btb; //branch table buffer 
+  cacheSet[$pow(2, clog2depth)-1 : 0] btb; //branch table buffer 
 
   `define way btb[adrw[clog2depth+1:2]].lruBit
-
-  always_ff @( posedge clk ) begin
-    if (rst) begin
-      for (int i = 0; i < pow(2, clog2depth); i++) begin
-        btb[i].lruBit        <= 1'b0;
-        btb[i].line[0].valid <= 1'b0;
-        btb[i].line[1].valid <= 1'b0;
+  
+  genvar i;
+  generate
+    for (i = 0; i < $pow(2, clog2depth); i++) begin
+      always_ff @(posedge clk) begin
+        if (rst) begin
+          btb[i].lruBit        <= 1'b0;
+          btb[i].line[0].valid <= 1'b0;
+          btb[i].line[1].valid <= 1'b0;
+        end
       end
     end
-    else if (we) begin
+  endgenerate
+
+  always_ff @( posedge clk ) begin
+    if (we) begin
       btb[adrw[clog2depth+1:2]].lruBit             <= 1'b0;
       btb[adrw[clog2depth+1:2]].line[way].valid    <= 1'b1;
       btb[adrw[clog2depth+1:2]].line[way].tag      <= adrw[$left(adrw) : clog2depth+2];

@@ -102,7 +102,7 @@ module datapath ( input   logic         clk, rst,
   execute e(.immExtE(immExtE), .rd1E(rd1E), .rd2E(rd2E), .PCE(PCE), .ALUcontrolE(ALUcontrolE), .ALUsrcAE(ALUsrcAE), 
             .jumpE(jumpE), .branchE(branchE), .JsrcE(JsrcE), .ALUsrcBE(ALUsrcBE), .PCsrcE(PCsrcE), .PCtargetE(PCtargetE), .ALUresultE(ALUresultE),
             .forwardAE(forwardAE), .forwardBE(forwardBE), .ALUresultM(ALUresultM), .resultW(resultW), .funct3(funct3E), .writeDataE(writeDataE),
-            .corr_pred(corr_pred), .bpPred(bpPredE), .bpValid(bpValidE), .bpUpdate(bpUpdate), .bpDestE(bpDestE));
+            .corr_pred(corr_pred), .bpPredE(bpPredE), .bpValidE(bpValidE), .bpUpdate(bpUpdate), .bpDestE(bpDestE));
 
 /////////////////////////////////////////////////////////
 

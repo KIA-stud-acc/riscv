@@ -44,9 +44,9 @@ module riscv_ps(input   logic         clk, rst,
                 .PCsrcE(PCsrcE), .flushD(flushD), .flushE(flushE));
 
   logic       corr_pred, bpPred, bpValid, bpUpdate;
-  logic[31:0] bpDest, 
+  logic[31:0] bpDest;
 
-  branch_prediction bp( .addr(PC), .adrw(PCE), .wd(PCtargetE), .we(bpUpdate), .clk(clk), .rst(rst), 
+  branch_prediction bp( .adrr(PC), .adrw(PCE), .wd(PCtargetE), .we(bpUpdate), .clk(clk), .rst(rst), 
                         .corr_pred(corr_pred), .dest(bpDest), .pred(bpPred), .valid(bpValid));
 
 endmodule
