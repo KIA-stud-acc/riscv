@@ -8,10 +8,10 @@ module execute( input  logic[31 : 0]  immExtE, rd1E, rd2E, PCE, ALUresultM, resu
                 input  logic          bpPredE, bpValidE,
                 input  logic          ALUsrcBE, 
                 output logic          PCsrcE, corr_pred, bpUpdate,      
-                output logic[31 : 0]  PCtargetE, ALUresultE, writeDataE
+                output logic[31 : 0]  PCtargetE, ALUresultE, writeDataE, targetImmExt
               );
 
-  logic[31:0] target4, targetImmExt;
+  logic[31:0] target4;
   assign      target4      = PCE + 4;
   assign      targetImmExt = (JsrcE ? rd1E : PCE) + immExtE;
   always_comb begin

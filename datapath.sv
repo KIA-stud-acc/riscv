@@ -12,7 +12,7 @@ module datapath ( input   logic         clk, rst,
                   input   logic[3  : 0] ALUcontrolD,
                   input   logic[31 : 0] instrF, readDataM, bpDest,
                   output  logic         memWriteM,
-                  output  logic[31 : 0] dataAdrM, writeDataM, PCF, PCE, instrD, PCtargetE,
+                  output  logic[31 : 0] dataAdrM, writeDataM, PCF, PCE, instrD, PCtargetE, targetImmExt,
                   output  logic[31 : 0][31:0] regs,
 
 
@@ -25,14 +25,17 @@ module datapath ( input   logic         clk, rst,
                   input   logic       stallF, stallD, 
 
                   output  logic       PCsrcE,
-                  input   logic       flushD, flushE
+                  input   logic       flushD, flushE,
+
+                  input   logic       uo,
+                  output  logic       ui
                 );
 
   logic[31:0] PCplus4F;
   fetch  f(.clk(clk), .rst(rst), .PCsrcE(PCsrcE), .PCtargetE(PCtargetE), .PCF(PCF), .PCplus4F(PCplus4F), .stallF(stallF), .bpPred(bpPred), .bpDest(bpDest));
 
 /////////////////////////////////////////////////////////
-  logic         bpPredD, bpValidD;
+  logic         bpPredD, bpValidD, uoD;
   logic[31 : 0] PCD, PCplus4D, bpDestD;
   always_ff @(posedge clk) begin
     if (flushD || rst) begin
@@ -43,6 +46,7 @@ module datapath ( input   logic         clk, rst,
       bpPredD  <= '0;
       bpValidD <= 'x;
       bpDestD  <= 'x;
+      uoD      <= 'x;
     end
     else if (~stallD) begin
       instrD   <= instrF;
@@ -52,6 +56,7 @@ module datapath ( input   logic         clk, rst,
       bpPredD  <= bpPred;
       bpValidD <= bpValid;
       bpDestD  <= bpDest;
+      uoD      <= uo;
     end
   end
 
@@ -88,12 +93,14 @@ module datapath ( input   logic         clk, rst,
       bpPredE  <= '0;
       bpValidE <= 'x;
       bpDestE  <= 'x;
+      ui       <= 'x;
       {jumpE, branchE, JsrcE, ALUsrcBE, memWriteE, regWriteE, resultSrcE, ALUsrcAE, ALUcontrolE} <= 14'b0_0_x_x_0_0_00_xx_xxxx;
     end
     else begin
       bpPredE  <= bpPredD;
       bpValidE <= bpValidD;
       bpDestE  <= bpDestD;
+      ui       <= uoD;
       {jumpE, branchE, JsrcE, ALUsrcBE, memWriteE, regWriteE, resultSrcE, ALUsrcAE, ALUcontrolE} <= {jumpD, branchD, JsrcD, ALUsrcBD, memWriteD, regWriteD, resultSrcD, ALUsrcAD, ALUcontrolD};
     end
   end
@@ -102,7 +109,7 @@ module datapath ( input   logic         clk, rst,
   execute e(.immExtE(immExtE), .rd1E(rd1E), .rd2E(rd2E), .PCE(PCE), .ALUcontrolE(ALUcontrolE), .ALUsrcAE(ALUsrcAE), 
             .jumpE(jumpE), .branchE(branchE), .JsrcE(JsrcE), .ALUsrcBE(ALUsrcBE), .PCsrcE(PCsrcE), .PCtargetE(PCtargetE), .ALUresultE(ALUresultE),
             .forwardAE(forwardAE), .forwardBE(forwardBE), .ALUresultM(ALUresultM), .resultW(resultW), .funct3(funct3E), .writeDataE(writeDataE),
-            .corr_pred(corr_pred), .bpPredE(bpPredE), .bpValidE(bpValidE), .bpUpdate(bpUpdate), .bpDestE(bpDestE));
+            .corr_pred(corr_pred), .bpPredE(bpPredE), .bpValidE(bpValidE), .bpUpdate(bpUpdate), .bpDestE(bpDestE), .targetImmExt(targetImmExt));
 
 /////////////////////////////////////////////////////////
 
