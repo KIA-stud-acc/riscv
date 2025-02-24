@@ -12,11 +12,4 @@ always_ff @(posedge clk) begin
   end
 end
 
-initial begin
-  forever begin
-    @(posedge clk);
-    $display("MEMORY4 %h", mem[5]);
-  end
-end
-
 endmodule

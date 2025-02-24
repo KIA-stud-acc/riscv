@@ -19,12 +19,4 @@ module regFile( input  logic[4:0]  adrr1, adrr2, adrw,
     end
   end
 
-
-  initial begin
-    forever begin
-      @(posedge clk);
-      $display("REGFILE %h %h %h", adrw, wd, we);
-    end
-  end
-
 endmodule

@@ -17,6 +17,7 @@ module branch_predictor #(parameter clog2depth = 5)
     cacheLine[1:0] line;
   } cacheSet;
 */
+`ifdef debug
   initial begin
     forever begin
       @(posedge clk);
@@ -27,6 +28,7 @@ module branch_predictor #(parameter clog2depth = 5)
       $display("CACHE! %h %h %h",valids[0][adrr[clog2depth+1:2]], tag[0][adrr[clog2depth+1:2]], adrr[$left(adrr) : clog2depth+2]);
     end
   end
+`endif
 
   logic[$pow(2, clog2depth)-1 : 0]                            lruBit;
   logic[1:0][$pow(2, clog2depth)-1 : 0]                       valids;

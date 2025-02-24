@@ -148,6 +148,8 @@ module datapath ( input   logic         clk, rst,
   logic [31: 0] resultW;
   writeback w(.ALUresultW(ALUresultW), .readDataW(readDataW), .PCplus4W(PCplus4W), .resultSrcW(resultSrcW), .resultW(resultW));
 
+
+`ifdef debug
  initial begin
     forever begin
       @(posedge clk);
@@ -161,6 +163,6 @@ module datapath ( input   logic         clk, rst,
       $display("DATAPATHW %h %h %h %h %h", ALUresultW,readDataW, resultSrcW, resultW, regWriteW);
     end
   end
-  
+`endif
 
 endmodule
