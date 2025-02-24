@@ -1,7 +1,5 @@
 `include "top.sv"
 
-//`define debug
-
 module testbench;
 
   logic clk, rst;
