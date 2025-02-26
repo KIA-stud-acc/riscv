@@ -106,7 +106,7 @@ module datapath ( input   logic         clk, rst,
   end
 
   logic[31: 0]  ALUresultE;
-  execute e(.immExtE(immExtE), .rd1E(rd1E), .rd2E(rd2E), .PCE(PCE), .ALUcontrolE(ALUcontrolE), .ALUsrcAE(ALUsrcAE), 
+  execute e(.immExtE(immExtE), .rd1E(rd1E), .rd2E(rd2E), .PCE(PCE), .ALUcontrolE(ALUcontrolE), .ALUsrcAE(ALUsrcAE), .PCplus4E(PCplus4E), 
             .jumpE(jumpE), .branchE(branchE), .JsrcE(JsrcE), .ALUsrcBE(ALUsrcBE), .PCsrcE(PCsrcE), .PCtargetE(PCtargetE), .ALUresultE(ALUresultE),
             .forwardAE(forwardAE), .forwardBE(forwardBE), .ALUresultM(ALUresultM), .resultW(resultW), .funct3(funct3E), .writeDataE(writeDataE),
             .corr_pred(corr_pred), .bpPredE(bpPredE), .bpValidE(bpValidE), .bpUpdate(bpUpdate), .bpDestE(bpDestE), .targetImmExt(targetImmExt));
@@ -148,7 +148,7 @@ module datapath ( input   logic         clk, rst,
   logic [31: 0] resultW;
   writeback w(.ALUresultW(ALUresultW), .readDataW(readDataW), .PCplus4W(PCplus4W), .resultSrcW(resultSrcW), .resultW(resultW));
 
-//`define debug_datapath
+`define debug_datapath
 `ifdef  debug_datapath
  initial begin
     forever begin

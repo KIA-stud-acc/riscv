@@ -1,6 +1,6 @@
 `include "ALU.sv"
 
-module execute( input  logic[31 : 0]  immExtE, rd1E, rd2E, PCE, ALUresultM, resultW, bpDestE,
+module execute( input  logic[31 : 0]  immExtE, rd1E, rd2E, PCE, PCplus4E, ALUresultM, resultW, bpDestE,
                 input  logic[3  : 0]  ALUcontrolE,
                 input  logic[2  : 0]  funct3,
                 input  logic[1  : 0]  ALUsrcAE, forwardAE, forwardBE,
@@ -11,13 +11,11 @@ module execute( input  logic[31 : 0]  immExtE, rd1E, rd2E, PCE, ALUresultM, resu
                 output logic[31 : 0]  PCtargetE, ALUresultE, writeDataE, targetImmExt
               );
 
-  logic[31:0] target4;
-  assign      target4      = PCE + 4;
   assign      targetImmExt = (JsrcE ? rd1E : PCE) + immExtE;
   always_comb begin
     if (corr_pred) begin
       if (bpPredE) begin
-        PCtargetE = target4;
+        PCtargetE = PCplus4E;
       end
       else begin
         PCtargetE = targetImmExt;

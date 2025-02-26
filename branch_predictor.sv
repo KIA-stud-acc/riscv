@@ -17,7 +17,7 @@ module branch_predictor #(parameter clog2depth = 5)
     cacheLine[1:0] line;
   } cacheSet;
 */
-//`define debug_cache
+`define debug_cache
 `ifdef  debug_cache
   initial begin
     forever begin
