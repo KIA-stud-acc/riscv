@@ -148,7 +148,7 @@ module datapath ( input   logic         clk, rst,
   logic [31: 0] resultW;
   writeback w(.ALUresultW(ALUresultW), .readDataW(readDataW), .PCplus4W(PCplus4W), .resultSrcW(resultSrcW), .resultW(resultW));
 
-`define debug_datapath
+//`define debug_datapath
 `ifdef  debug_datapath
  initial begin
     forever begin
