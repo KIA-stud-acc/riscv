@@ -8,7 +8,7 @@ module decode(input  logic[31 : 0]     instrD,
               input  logic             regWriteW, clk,
               output logic[4  : 0]     rs1D, rs2D, rdD,
               output logic[31 : 0]     rd1D, rd2D, immExtD,
-              output logic[31:0][31:0] regs
+              output logic[31 : 0]     reg5
               );
 
   immExt  ie(.immSrc(immSrcD), .imm(instrD[31:7]), .immExt(immExtD));
@@ -17,6 +17,6 @@ module decode(input  logic[31 : 0]     instrD,
   assign  rs2D = instrD[24:20];
   assign  rdD  = instrD[11: 7];
 
-  regFile rf(.adrr1(rs1D), .adrr2(rs2D), .adrw(rdW), .wd(resultW), .we(regWriteW), .clk(clk), .rd1(rd1D), .rd2(rd2D), .regs(regs));
+  regFile rf(.adrr1(rs1D), .adrr2(rs2D), .adrw(rdW), .wd(resultW), .we(regWriteW), .clk(clk), .rd1(rd1D), .rd2(rd2D), .reg5(reg5));
 
 endmodule

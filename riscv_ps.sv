@@ -7,7 +7,8 @@ module riscv_ps(input   logic         clk, rst,
                 input   logic [31:0]  instr, readData,
                 output  logic         memWriteM,
                 output  logic [31:0]  dataAdr, PC, writeData,
-                output  logic[31:0][31:0] regs );
+                output  logic[31:0] reg5
+                );
 
   logic[1 :0] resultSrc, ALUsrcA;
   logic[2 :0] immSrc;
@@ -17,7 +18,7 @@ module riscv_ps(input   logic         clk, rst,
 
   datapath    dp( .clk(clk), .rst(rst), .regWriteD(regWrite), .jumpD(jumpD), .branchD(branch), .ALUsrcBD(ALUsrcB), 
                   .JsrcD(Jsrc), .ALUcontrolD(ALUcontrol), .immSrcD(immSrc), .resultSrcD(resultSrc), .ALUsrcAD(ALUsrcA), 
-                  .instrF(instr), .readDataM(readData), .dataAdrM(dataAdr), .writeDataM(writeData), .PCF(PC), .regs(regs),
+                  .instrF(instr), .readDataM(readData), .dataAdrM(dataAdr), .writeDataM(writeData), .PCF(PC), .reg5(reg5),
                   .memWriteM(memWriteM), .memWriteD(memWriteD), .stallF(stallF), .stallD(stallD), .flushD(flushD), .flushE(flushE),
                   .rs1E(rs1E), .rs2E(rs2E), .rdM(rdM), .rdW(rdW), .regWriteM(regWriteM), .regWriteW(regWriteW),
                   .forwardAE(forwardAE), .forwardBE(forwardBE), .rs1D(rs1D), .rs2D(rs2D), .rdE(rdE),

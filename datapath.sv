@@ -13,7 +13,7 @@ module datapath ( input   logic         clk, rst,
                   input   logic[31 : 0] instrF, readDataM, bpDest,
                   output  logic         memWriteM,
                   output  logic[31 : 0] dataAdrM, writeDataM, PCF, PCE, instrD, PCtargetE, targetImmExt,
-                  output  logic[31 : 0][31:0] regs,
+                  output  logic[31 : 0] reg5,
 
 
                   output  logic[4 :0] rs1E, rs2E, rdM, rdW,
@@ -63,7 +63,7 @@ module datapath ( input   logic         clk, rst,
   logic[4 : 0] rdD;
   logic[31: 0] rd1D, rd2D, immExtD;
   decode d( .clk(clk), .instrD(instrD), .resultW(resultW), .immSrcD(immSrcD), .regWriteW(regWriteW), .rdW(rdW),
-            .rs1D(rs1D), .rs2D(rs2D), .rdD(rdD), .rd1D(rd1D), .rd2D(rd2D), .immExtD(immExtD), .regs(regs));
+            .rs1D(rs1D), .rs2D(rs2D), .rdD(rdD), .rd1D(rd1D), .rd2D(rd2D), .immExtD(immExtD), .reg5(reg5));
 
 /////////////////////////////////////////////////////////
   logic        bpPredE, bpValidE;
