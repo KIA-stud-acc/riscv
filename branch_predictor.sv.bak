@@ -31,51 +31,33 @@ module branch_predictor #(parameter clog2depth = 5)
   end
 `endif
 
-  localparam depth = 1 << clog2depth;
-
-  logic[depth-1 : 0]                            lruBit;
-  logic[1:0][depth-1 : 0]                       valids;
-  logic[1:0][depth-1 : 0][30-clog2depth-1 : 0]  tag;
-  logic[1:0][depth-1 : 0][1:0]                  predBits;
-  logic[1:0][depth-1 : 0][31:0]                 destAdr;
+  logic[$pow(2, clog2depth)-1 : 0]                            lruBit;
+  logic[1:0][$pow(2, clog2depth)-1 : 0]                       valids;
+  logic[1:0][$pow(2, clog2depth)-1 : 0][30-clog2depth-1 : 0]  tag;
+  logic[1:0][$pow(2, clog2depth)-1 : 0][1:0]                  predBits;
+  logic[1:0][$pow(2, clog2depth)-1 : 0][31:0]                 destAdr;
 
   //logic[$pow(2, clog2depth)-1 : 0][1+(1+30-clog2depth+2+32)*2-1 : 0] btb; //branch table buffer 
- 
-  always_ff @(posedge clk) begin
-    if (rst) begin
-      lruBit   <= '0;
-      valids   <= '0;
-    end
-    else begin 
-      if (we) begin
-          if (lruBit[adrw[clog2depth+1:2]]) begin
-            lruBit[adrw[clog2depth+1:2]]      <= ~lruBit[adrw[clog2depth+1:2]];
-            valids[1][adrw[clog2depth+1:2]]   <= 1'b1;
-          end
-          else begin 
-            lruBit[adrw[clog2depth+1:2]]      <= ~lruBit[adrw[clog2depth+1:2]];
-            valids[0][adrw[clog2depth+1:2]]   <= 1'b1;
-          end
-      end
-      else begin			   
-        if (ui) begin
-          if ((valids[0][adrw[clog2depth+1:2]] && ui == '0) || (valids[1][adrw[clog2depth+1:2]] && ui == '1)) begin
-            lruBit[adrw[clog2depth+1:2]]      <= ~ui;
-          end
-        end
-        else begin				
-          if ((valids[0][adrw[clog2depth+1:2]] && ui == '0) || (valids[1][adrw[clog2depth+1:2]] && ui == '1)) begin
-            lruBit[adrw[clog2depth+1:2]]      <= ~ui;
-          end
+  
+  genvar i;
+  generate
+    for (i = 0; i < $pow(2, clog2depth); i++) begin
+      always_ff @(posedge clk) begin
+        if (rst) begin
+          lruBit[i]   <= 1'b0;
+          valids[0][i] <= 1'b0;
+          valids[1][i] <= 1'b0;
         end
       end
     end
-  end
+  endgenerate
 
 
   always_ff @( posedge clk ) begin
     if (we) begin
       if (lruBit[adrw[clog2depth+1:2]]) begin
+        lruBit[adrw[clog2depth+1:2]]      <= ~lruBit[adrw[clog2depth+1:2]];
+        valids[1][adrw[clog2depth+1:2]]   <= 1'b1;
         tag[1][adrw[clog2depth+1:2]]      <= adrw[$left(adrw) : clog2depth+2];
         destAdr[1][adrw[clog2depth+1:2]]  <= wd;
 
@@ -83,6 +65,8 @@ module branch_predictor #(parameter clog2depth = 5)
       end
 
       else begin
+        lruBit[adrw[clog2depth+1:2]]      <= ~lruBit[adrw[clog2depth+1:2]];
+        valids[0][adrw[clog2depth+1:2]]   <= 1'b1;
         tag[0][adrw[clog2depth+1:2]]      <= adrw[$left(adrw) : clog2depth+2];
         destAdr[0][adrw[clog2depth+1:2]]  <= wd;
         
@@ -91,6 +75,9 @@ module branch_predictor #(parameter clog2depth = 5)
     end
     else begin
       if (ui) begin
+        if ((valids[0][adrw[clog2depth+1:2]] && ui == '0) || (valids[1][adrw[clog2depth+1:2]] && ui == '1)) begin
+          lruBit[adrw[clog2depth+1:2]]      <= ~ui;
+        end
         if (corr_pred == '1) begin
           destAdr[1][adrw[clog2depth+1:2]]  <= wd;
         end
@@ -131,6 +118,9 @@ module branch_predictor #(parameter clog2depth = 5)
         endcase
       end
       else begin
+        if ((valids[0][adrw[clog2depth+1:2]] && ui == '0) || (valids[1][adrw[clog2depth+1:2]] && ui == '1)) begin
+          lruBit[adrw[clog2depth+1:2]]      <= ~ui;
+        end
         if (corr_pred == '1) begin
           destAdr[0][adrw[clog2depth+1:2]]  <= wd;
         end

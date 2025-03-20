@@ -1,5 +1,5 @@
-//`include "./stages/decode/immExt.sv"
-//`include "./stages/decode/regFile.sv"
+`include "./stages/decode/immExt.sv"
+`include "./stages/decode/regFile.sv"
 
 module decode(input  logic[31 : 0]     instrD,
               input  logic[31 : 0]     resultW,

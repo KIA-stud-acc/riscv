@@ -1,7 +1,7 @@
-//`include "./stages/fetch.sv"
-//`include "./stages/decode.sv"
-//`include "./stages/execute.sv"
-//`include "./stages/writeback.sv"
+`include "./stages/fetch.sv"
+`include "./stages/decode.sv"
+`include "./stages/execute.sv"
+`include "./stages/writeback.sv"
 
 module datapath ( input   logic         clk, rst,
                   input   logic         jumpD, branchD, JsrcD, ALUsrcBD, memWriteD, regWriteD,

@@ -1,7 +1,7 @@
-//`include "datapath.sv"
-//`include "controller.sv"
-//`include "hazard.sv"
-//`include "branch_predictor.sv"
+`include "datapath.sv"
+`include "controller.sv"
+`include "hazard.sv"
+`include "branch_predictor.sv"
 
 module riscv_ps(input   logic         clk, rst,
                 input   logic [31:0]  instr, readData,
