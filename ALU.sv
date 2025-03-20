@@ -45,6 +45,9 @@ module ALU #(parameter ALUcontrolWidth = 4)
       ALUcontrolWidth'(9): begin //slt
         ALUresult = {31'b0, sum[31]^overflow};
       end
+      default: begin
+        ALUresult = 'x;
+      end
     endcase
   end
 

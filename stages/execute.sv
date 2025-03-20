@@ -13,6 +13,7 @@ module execute( input  logic[31 : 0]  immExtE, rd1E, rd2E, PCE, PCplus4E, ALUres
 
   assign      targetImmExt = (JsrcE ? rd1E : PCE) + immExtE;
   always_comb begin
+    PCtargetE = 'x;
     if (corr_pred) begin
       if (bpPredE) begin
         PCtargetE = PCplus4E;
@@ -30,9 +31,10 @@ module execute( input  logic[31 : 0]  immExtE, rd1E, rd2E, PCE, PCplus4E, ALUres
   always_comb begin
     case(ALUsrcAE)
       2'b00:   case(forwardAE)
-                  2'b00: srcA = rd1E;
-                  2'b01: srcA = resultW;
-                  2'b10: srcA = ALUresultM;
+                  2'b00:   srcA = rd1E;
+                  2'b01:   srcA = resultW;
+                  2'b10:   srcA = ALUresultM;
+                  default: srcA = 'x;
                endcase
       2'b01:   srcA = PCE;
       2'b10:   srcA = '0;
@@ -42,9 +44,10 @@ module execute( input  logic[31 : 0]  immExtE, rd1E, rd2E, PCE, PCplus4E, ALUres
 
   always_comb begin
     case(forwardBE)
-      2'b00: writeDataE = rd2E;
-      2'b01: writeDataE = resultW;
-      2'b10: writeDataE = ALUresultM;
+      2'b00:   writeDataE = rd2E;
+      2'b01:   writeDataE = resultW;
+      2'b10:   writeDataE = ALUresultM;
+      default: writeDataE = 'x;
     endcase
   end
 
